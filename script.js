@@ -121,73 +121,75 @@ function generatePlainTextResume() {
 
   return `================================================================================
 ${name.toUpperCase()}
-Auxiliar de Tecnología | Automatización (RPA), Integración de Sistemas (ERP) y Desarrollo
+Auxiliar de Tecnología | Desarrollo de soluciones empresariales | Automatización de procesos | Integración de sistemas y APIs | Node-RED · Power Automate · JavaScript
 Ubicación: ${city} | Correo: ${email} | Teléfono: ${phone} | LinkedIn: ${linkedin}
 ================================================================================
 
 PERFIL PROFESIONAL
-Tecnólogo en Análisis y Programación de Sistemas de Información con formación activa en Ingeniería Informática en la Universidad de Caldas. Trayectoria en GELCO / Productora de Gelatina S.A.S. asumiendo el ciclo integral de desarrollo, integración de sistemas y automatización de procesos operativos (RPA). Especializado en conectar el ERP corporativo (SIESA) mediante servicios SOAP y REST con aplicaciones internas, bases de datos (SQL Server, MongoDB) y tableros de control en Power BI. Enfoque en la eliminación de reprocesos, trazabilidad y optimización operativa en entornos de producción.
+Auxiliar de Tecnología con experiencia práctica en el desarrollo de soluciones empresariales, automatización de procesos e integración de sistemas, participando en proyectos orientados a transformar procesos manuales en soluciones digitales más eficientes y trazables. Mi experiencia se ha desarrollado principalmente en GELCO / Productora de Gelatina S.A.S., evolucionando desde soporte tecnológico hacia el desarrollo e implementación de soluciones que conectan sistemas empresariales, aplicaciones internas, APIs, bases de datos y herramientas de automatización. He trabajado con Node-RED, Power Automate (Desktop y Cloud), APIs REST y SOAP, JavaScript, HTML, CSS, MongoDB, SQL Server, SharePoint, Power BI y SIESA ERP. Estudiante activo de Ingeniería Informática en la Universidad de Caldas.
 
 EXPERIENCIA LABORAL
 --------------------------------------------------------------------------------
-EMPRESA: GELCO / Productora de Gelatina S.A.S.
-CARGO: Auxiliar de Tecnología
+EMPRESA: GELCO / Productora de Gelatina S.A.S. (Manizales, Caldas, Colombia)
+CARGO: Auxiliar de Tecnología (Jornada completa, Presencial)
 PERIODO: 25 de julio de 2024 – Actualidad (Activo)
-Trayectoria: 6 meses de práctica profesional -> ~1 año vía bolsa de empleo -> Vinculación directa desde febrero de 2026.
+Trayectoria: Práctica profesional (6 meses) -> Bolsa de empleo (~1 año) -> Contratación directa desde febrero de 2026.
 
 Responsabilidades y Logros Clave:
-* Desarrollo y despliegue de flujos de automatización de procesos (RPA) utilizando Node-RED y Power Automate (Desktop y Cloud).
-* Integración de sistemas y consumo de servicios web SOAP (XML) y endpoints REST con el sistema ERP SIESA.
-* Elaboración y optimización de consultas SQL en SQL Server y MySQL para extracción y cruce de datos en producción.
-* Modelado y estructuración de colecciones y documentos JSON en base de datos NoSQL MongoDB.
-* Diseño y administración de tableros de control y analítica operativa en Power BI conectados a flujos de datos automáticos.
-* Levantamiento de requerimientos técnicos y funcionales con líderes de área, diagramación de flujos y documentación técnica.
-* Soporte técnico y resolución de incidencias en niveles N1, N2 y N3, junto con administración de cuentas de usuario y redes.
+* Desarrollo e implementación de soluciones para digitalizar y automatizar procesos empresariales, utilizando Node-RED, Power Automate y Power Automate Desktop.
+* Integración de sistemas mediante APIs REST y SOAP, JSON, XML, autenticación, webhooks y endpoints, conectando ERP SIESA, aplicaciones internas, bases de datos y servicios externos.
+* Desarrollo de aplicaciones y componentes web utilizando JavaScript, HTML y CSS, junto con integración de lógica de negocio y servicios backend.
+* Consulta y procesamiento de información mediante MongoDB (NoSQL), SQL Server y SQL, además de construcción de componentes de Power BI para análisis, trazabilidad y apoyo a procesos operativos.
+* Implementación y mantenimiento de soluciones en producción, realizando ajustes, soporte, validación funcional y evolución continua según el negocio.
+* Administración de usuarios y permisos en SIESA y aplicaciones internas, soporte técnico (N1, N2, N3), Active Directory, Microsoft 365 y componentes básicos de redes.
 
 PROYECTOS DESTACADOS EN PRODUCCIÓN
 --------------------------------------------------------------------------------
-1. Automatización de Solicitudes de Puntos de Reorden (SPR) - ERP SIESA
-   * Problema: Detección semanal manual de inventarios críticos mediante Excel y digitación en ERP (~3 horas/semana).
-   * Solución: Orquestación automática en Node-RED con consumo de servicios SOAP, XML, SQL Server y Power BI.
-   * Resultado: Reducción del tiempo de ~3 horas semanales a menos de 1 minuto 9 segundos por ciclo. Más de 1.175 órdenes trazadas en Power BI (127 aprobadas).
+1. Automatización de Procesos de Inventario y Abastecimiento (Puntos de Reorden — ERP SIESA)
+   * En producción: 21 de julio de 2025.
+   * Problema: Proceso semanal manual de revisión de inventario mediante Excel y digitación individual en el ERP (~3 horas semanales).
+   * Solución: V1 en Power Automate Desktop evolucionada a V2 directa en Node-RED con endpoints, consumo de servicios SOAP de SIESA, inyección de XML, SQL Server y Power BI.
+   * Resultado: Reducción del tiempo de ~3 horas semanales a menos de 1 minuto 9 segundos por ejecución diaria (7:00 a. m.). 1.175 documentos generados trazados en Power BI.
 
-2. Software de Programación y Gestión de Turnos de Planta (12 Horas)
-   * Solución: Desarrollo integral desde cero (frontend, backend, BD) con algoritmo dinámico de asignación de rotaciones de 12h, gestión de novedades e integración con API HikCentral de marcación facial.
-   * Resultado: Generación estructurada de la programación y contrastación en tiempo real de presencia física en planta.
+2. Sistema de Programación y Gestión de Turnos (Turnia Operarios — 12 Horas)
+   * En producción: 27 de septiembre de 2025.
+   * Solución: Desarrollo integral desde cero (frontend, backend y algoritmos de rotación) para turnos de 12 horas, gestión de novedades e integración con API HikCentral de reconocimiento facial.
+   * Resultado: Cobertura de ~143 colaboradores en 11 áreas con ~22 usuarios directos y contraste en tiempo real de presencia física vs. programación teórica.
 
-3. Contabilización Automática de Facturas de Proveedores
-   * Solución: Versión 2 desarrollada con Node-RED, SOAP UI, Power Automate Web, SQL Server, SharePoint y ERP SIESA. Cruce automático de entradas de almacén, órdenes de compra y reglas fiscales.
-   * Resultado: 1.168 facturas contabilizadas automáticamente desde marzo de 2026. Auditoría de 603 documentos con 538 completamente exitosos.
+3. Automatización de Contabilización de Documentos (Facturas de Proveedores — ERP SIESA)
+   * En producción: Marzo de 2026.
+   * Solución: V2 en Node-RED que cruza entradas de almacén, órdenes de compra y facturas con validación de reglas contables e impuestos en SIESA, apoyando la factura electrónica.
+   * Resultado: 1.168 documentos procesados (FDP, FIA, FIA Anticipo, FDS, FAC). Auditoría de 603 documentos con 538 completamente exitosos.
 
-4. Automatización de Doble Digitación y Flujo de Requisiciones (RQC / GelcoInfo)
-   * Solución: Integración bidireccional entre SIESA y GelcoInfo con Node-RED, SQL, Power Automate y Power BI embebido.
-   * Resultado: Procesamiento automático continuo de 40 a 50+ requisiciones diarias; ahorro de ~2 horas diarias de digitación.
+4. Integración de Solicitudes y Trazabilidad Operativa (RQC / GelcoInfo)
+   * Solución: Integración bidireccional entre SIESA y aplicación interna para procesar requisiciones de almacén y salidas de insumos (PTAR, SST, paqueteo, mezclas) con flujo de aprobaciones y reportes embebidos.
+   * Resultado: Procesamiento fluido de 40 a 50+ solicitudes diarias con trazabilidad completa, mitigando ~2 horas diarias de trabajo operativo manual.
 
-5. Facturación Automática de Máquina Vending de Colágeno
-   * Solución: Integración con API de máquina dispensadora, landing page HTML con IndexedDB para validación local, Node-RED, SOAP SIESA y facturación electrónica con Power Automate Desktop.
-   * Resultado: Proceso 100% digitalizado desde la dispensación física hasta el comprobante fiscal en el ERP.
+5. Integración y Automatización del Proceso de Facturación (Máquina Vending de Colágeno)
+   * En producción: 27 de mayo de 2026 – 22 de septiembre de 2026.
+   * Solución: Conexión API dispensadora -> interfaz web con IndexedDB -> Node-RED -> SOAP SIESA -> causación y facturación electrónica con Power Automate Desktop.
+   * Resultado: 835 documentos FVP generados e integrados al flujo de facturación electrónica.
 
-6. Gestor y Control de Entrega de Almuerzos
-   * Solución: Backend en Node-RED con MongoDB NoSQL (colecciones y vistas JSON) conectado a reconocimiento facial HikCentral.
-   * Resultado: Trazabilidad y registro fidedigno en tiempo real de colaboradores atendidos en planta.
+6. Sistema de Gestión y Trazabilidad de Entrega de Almuerzos (Gestor de Almuerzos)
+   * Solución: Backend en Node-RED con almacenamiento en MongoDB NoSQL (colecciones y vistas JSON) conectado a la API de reconocimiento facial de HikCentral.
+   * Resultado: Cobertura de ~266 colaboradores activos y 90–100 usos diarios de lunes a viernes, garantizando control exacto sin registros manuales en papel.
 
 COMPETENCIAS TÉCNICAS
 --------------------------------------------------------------------------------
-* Automatización y RPA: Node-RED (Dominio Avanzado), Power Automate Desktop, Power Automate Cloud, n8n.
-* Integraciones y APIs: Integración de APIs REST, Servicios SOAP, SOAP UI, Esquemas XML, ERP SIESA.
-* Desarrollo de Software: JavaScript (Vanilla/ES6+), HTML5, CSS3, Frontend & Backend, IndexedDB.
-* Datos y Analítica: Power BI (Dashboards/Reportes embebidos), SQL (SQL Server, MySQL), MongoDB (NoSQL).
-* Sistemas Empresariales: ERP SIESA, SharePoint, GelcoInfo, Administración de Usuarios y Accesos.
-* Procesos: Análisis de Procesos, Levantamiento de Requerimientos, Documentación Técnica, Soporte N1/N2/N3.
+* Automatización y RPA (Avanzado): Node-RED, Microsoft Power Automate, Power Automate Desktop, APIs REST, Flujos Transaccionales, n8n.
+* Integraciones y APIs (Intermedio): SIESA ERP, Servicios Web SOAP, SOAP UI, Esquemas XML, JSON, Endpoints HTTP, Webhooks, API HikCentral.
+* Desarrollo Web y Backend (Intermedio): JavaScript (ES6+), HTML5, CSS3, IndexedDB, Lógica de Negocio, Algoritmos de Rotación, SharePoint.
+* Bases de Datos y Analítica BI: MongoDB NoSQL (Colecciones y Vistas JSON), SQL Server, MySQL, Consultas SQL, Microsoft Power BI.
+* Soporte e Infraestructura Complementaria: Active Directory, Microsoft 365, Soporte N1/N2/N3, Redes y Conectividad básica.
 
-EDUCACIÓN
+EDUCACIÓN FORMAL
 --------------------------------------------------------------------------------
-* Ingeniería Informática — Universidad de Caldas (Primer semestre — En curso)
-* Tecnólogo en Análisis y Programación de Sistemas de Información — Universidad Autónoma de Manizales (Graduado)
-* Técnico Profesional en Sistemas — Universidad Autónoma de Manizales (Graduado)
-* Técnico Laboral en Sistemas — Universidad Autónoma de Manizales (Graduado)
-* Bachiller Técnico en Sistemas — Instituto Técnico Francisco José de Caldas (Graduado)
-* Diplomado de Inglés — Universidad Católica de Manizales (Nivel por confirmar | Español Nativo)
+* Ingeniería Informática — Universidad de Caldas (1.º semestre — En curso, Inicio: 2026)
+* Tecnología en Análisis y Programación de Sistemas de Información — Universidad Autónoma de Manizales (Graduado, 2024–2025 | Promedio: 4.47)
+* Técnico Profesional en Programación de Computadores — Universidad Autónoma de Manizales (Graduado, 2023–2024 | Promedio: 4.68)
+* Técnico Laboral Auxiliar en Sistemas Informáticos — Universidad Autónoma de Manizales (Graduado, 2022 | Promedio: 4.44)
+* Bachiller Técnico con Especialidad en Sistemas y Computación — Instituto Técnico Francisco José de Caldas (Graduado, 2012–2023)
+* Certificado de Inglés Nivel A2 — Instituto de Idiomas, Universidad Autónoma de Manizales (Inglés I - IV Acreditados | Español Nativo)
 ================================================================================`;
 }
 
@@ -299,63 +301,63 @@ function initPipelineSimulator() {
    ========================================================================== */
 const PROJECTS_DB = {
   1: {
-    title: 'Automatización de Solicitudes de Puntos de Reorden (SPR)',
+    title: 'Automatización de Procesos de Inventario y Abastecimiento',
     category: 'Automatización RPA & Integración ERP',
-    status: 'En Producción Diaria (GELCO S.A.S.)',
-    problem: 'Proceso semanal manual y crítico para identificar ítems con niveles bajos de inventario. Involucraba análisis en hojas de cálculo Excel, validación manual de mínimos y montaje manual de cada ítem en el ERP SIESA, consumiendo aproximadamente 3 horas semanales por parte del encargado.',
-    solution: 'Automatización de extremo a extremo de la detección de ítems y generación de SPR en SIESA. La primera versión se implementó con Power Automate Desktop y evolucionó hacia una integración directa más robusta con Node-RED, endpoints, consumo de servicios SOAP, XML, SQL Server y Power BI.',
+    status: 'En Producción desde el 21 de Julio de 2025',
+    problem: 'Proceso semanal manual y crítico para identificar artículos con bajo nivel de inventario. Involucraba análisis en hojas de cálculo Excel, validación manual de mínimos y montaje manual de cada ítem en el ERP SIESA, consumiendo aproximadamente 3 horas semanales por parte del responsable.',
+    solution: 'Automatización de extremo a extremo de la detección de artículos y generación de solicitudes de reorden en SIESA. V1 en Power Automate Desktop que evolucionó a V2 directa en Node-RED con endpoints, consumo de servicios SOAP, inyección de XML, SQL Server y Power BI.',
     participation: 'Responsabilidad integral: Levantamiento de requerimientos, diseño de flujogramas, definición y negociación de lógica de negocio, consultas SQL de extracción, desarrollo de endpoints y flujos Node-RED, generación de XML SOAP para SIESA, puesta en marcha y documentación técnica.',
-    metrics: 'Reducción de tiempo de ~3 horas semanales a menos de 1 minuto 9 segundos por ejecución. Solicitudes generadas diariamente con 8–20+ ítems cada una. Monitoreo en Power BI con registro de más de 1.175 órdenes de compra generadas (127 aprobadas).',
+    metrics: 'Reducción de ~3 horas semanales a menos de 1 minuto 9 segundos por ciclo. Ejecución diaria a las 7:00 a. m. con 1.175 documentos generados registrados y auditados en Power BI.',
     technologies: ['Node-RED', 'ERP SIESA', 'SOAP / XML', 'SQL Server', 'Power Automate Desktop', 'Power BI']
   },
   2: {
-    title: 'Software de Programación y Gestión de Turnos de Planta (12h)',
-    category: 'Desarrollo Full Stack & Integración de Hardware',
-    status: 'En Producción (GELCO S.A.S.)',
-    problem: 'La programación de colaboradores de planta en turnos rotativos de 12 horas se ejecutaba manualmente, complicando la verificación de rotaciones válidas, descansos y novedades.',
-    solution: 'Desarrollo desde cero de una aplicación interna con frontend y backend propios. Incluye un algoritmo dinámico de asignación de rotaciones, módulo de gestión de novedades (incapacidades, vacaciones, cambios masivos) e integración para asignar turnos temporales en onboarding/offboarding.',
-    participation: 'Desarrollo Full Stack completo: análisis de procesos, algoritmo de asignación de rotaciones, backend, frontend, base de datos e integración directa con el sistema de marcación facial HikCentral para auditar programación teórica vs. presencia física real.',
-    metrics: 'Generación inmediata de la malla operativa de turnos sin errores humanos en secuencias de rotación, y auditoría en tiempo real de asistencia mediante biometría facial.',
-    technologies: ['JavaScript', 'HTML5 / CSS3', 'Algoritmos de Rotación', 'API HikCentral (Biometría)', 'Backend & Base de Datos']
+    title: 'Sistema de Programación y Gestión de Turnos',
+    category: 'Desarrollo Web & Integración de Hardware',
+    status: 'En Producción desde el 27 de Septiembre de 2025',
+    problem: 'La programación de colaboradores de planta en turnos rotativos de 12 horas se realizaba manualmente, dificultando la verificación de secuencias de rotación válidas, descansos y novedades.',
+    solution: 'Desarrollo desde cero de una aplicación interna con frontend y backend propios. Incluye un algoritmo dinámico de rotaciones de 12 horas, módulo de novedades (vacaciones, incapacidades, cambios masivos) e integración con la API de marcación facial de HikCentral.',
+    participation: 'Desarrollo Full Stack completo: análisis de procesos, algoritmo de asignación de rotaciones, backend, frontend, base de datos e integración con el sistema biométrico de HikCentral para contrastar programación teórica vs. presencia física real.',
+    metrics: 'Malla operativa para ~143 colaboradores en 11 áreas con ~22 usuarios directos y ~10 supervisores. Generación estructurada de turnos y auditoría de asistencia en tiempo real.',
+    technologies: ['JavaScript', 'HTML5 / CSS3', 'Algoritmos de Rotación', 'API HikCentral (Biometría)', 'Backend']
   },
   3: {
-    title: 'Contabilización Automática de Facturas y Proveedores',
+    title: 'Automatización de Contabilización de Documentos',
     category: 'Automatización RPA & Finanzas Corporativas',
     status: 'En Producción desde Marzo de 2026',
-    problem: 'Proceso contable altamente manual y propenso a demoras para causar facturas de proveedores que involucraban múltiples variables: órdenes de compra, servicios, entradas de almacén, retenciones, impuestos, anticipos y diferentes tipos de contabilización.',
-    solution: 'Diseño y desarrollo de la versión 2 del proceso. Se eliminó la dependencia de clics de escritorio migrando a una solución integrada con Node-RED, SOAP UI, Power Automate Web, consultas SQL estructuradas, SharePoint y ERP SIESA.',
-    participation: 'Diseño de arquitectura, consultas de cruce SQL (entradas vs. órdenes vs. facturas), desarrollo de lógica de decisión contable en Node-RED, integración SOAP con SIESA, mantenimiento y soporte en producción.',
-    metrics: '1.168 facturas contabilizadas automáticamente desde marzo de 2026. En un período de auditoría de 603 documentos, 538 fueron completamente exitosos (las 65 anulaciones correspondieron principalmente a pruebas de soporte controladas).',
-    technologies: ['Node-RED', 'ERP SIESA', 'SOAP UI / XML', 'Power Automate Web', 'SQL Server', 'SharePoint']
+    problem: 'Proceso contable altamente manual para causar facturas de proveedores que involucraban múltiples variables: órdenes de compra, servicios, entradas de almacén, retenciones, impuestos, anticipos y diferentes tipos de contabilización.',
+    solution: 'Versión 2 desarrollada principalmente por el usuario en Node-RED, SOAP UI, Power Automate Web, consultas SQL estructuradas, SharePoint y ERP SIESA. Cruce de entradas de almacén, órdenes de compra y facturas con validación contable e integración con el proceso de aprobación de factura electrónica.',
+    participation: 'Diseño de arquitectura, consultas de cruce SQL (entradas vs. órdenes vs. facturas), desarrollo de lógica contable en Node-RED, integración SOAP con SIESA, mantenimiento y soporte en producción.',
+    metrics: '1.168 documentos procesados desde marzo de 2026 (FDP, FIA, FIA Anticipo, FDS, FAC). En un período de auditoría de 603 documentos, 538 fueron completamente exitosos (las 65 anulaciones correspondieron a pruebas y soporte).',
+    technologies: ['Node-RED', 'ERP SIESA', 'SOAP UI / XML', 'Power Automate', 'SQL Server', 'SharePoint']
   },
   4: {
-    title: 'Automatización de Doble Digitación y Flujo de Requisiciones (RQC)',
+    title: 'Integración de Solicitudes y Trazabilidad Operativa',
     category: 'Integración de Sistemas & Eficiencia Operativa',
     status: 'En Producción Continua',
-    problem: 'Doble digitación manual de solicitudes recibidas por correo para crear requisiciones en el ERP y registrarlas en GelcoInfo, demandando unas 2 horas diarias de trabajo operativo (40–50+ requisiciones diarias).',
-    solution: 'Integración automatizada bidireccional entre SIESA y GelcoInfo utilizando Node-RED, SQL Server, Power Automate para aprobaciones y Power BI con reportes embebidos. Posteriormente se automatizó la salida y descuento de insumos con trazabilidad completa.',
-    participation: 'Definición de lógica, integración mediante consultas SQL, procesamiento en Node-RED, reportes HTML embebidos en Power BI y adaptación de la solución a múltiples áreas operativas.',
-    metrics: 'Atención continua de 40 a 50+ requisiciones diarias, mitigando aproximadamente 2 horas de labor manual al día. Cobertura en RQC, EPP para SST, paqueteo, empaques y PTAR.',
+    problem: 'Doble digitación manual de solicitudes recibidas por correo para crear requisiciones en el ERP y registrarlas en GelcoInfo, demandando unas 2 horas diarias de trabajo operativo (40–50 solicitudes diarias).',
+    solution: 'Integración bidireccional entre SIESA y GelcoInfo utilizando Node-RED, SQL Server, Power Automate para aprobaciones y Power BI con reportes embebidos. Conecta solicitudes de almacén y salidas de insumos (PTAR, SST, paqueteo, mezclas) con trazabilidad completa.',
+    participation: 'Definición de lógica de negocio, integración mediante consultas SQL, procesamiento en Node-RED, reportes HTML embebidos en Power BI y adaptación de la solución a múltiples áreas operativas.',
+    metrics: 'Atención continua de 40 a 50+ solicitudes diarias con trazabilidad total, mitigando aproximadamente 2 horas de labor manual al día.',
     technologies: ['SIESA ERP', 'GelcoInfo', 'Node-RED', 'SQL Server', 'Power Automate', 'Power BI']
   },
   5: {
-    title: 'Facturación Automática de Máquina Vending de Colágeno',
+    title: 'Integración y Automatización del Proceso de Facturación',
     category: 'Desarrollo Frontend, APIs & Facturación Electrónica',
-    status: 'En Producción',
-    problem: 'Creación de un proceso nuevo para automatizar la facturación de dispensaciones físicas a colaboradores realizadas por una máquina vending.',
-    solution: 'Integración con la API del proveedor de la máquina, desarrollo de una landing page HTML con almacenamiento temporal local en IndexedDB para verificación del usuario responsable, procesamiento en Node-RED, causación vía SOAP en SIESA y disparo de Facturación Electrónica Rebuilder con Power Automate Desktop.',
+    status: 'En Producción desde Mayo de 2026',
+    problem: 'Automatización de la facturación y causación fiscal por dispensaciones físicas realizadas por una máquina vending a colaboradores.',
+    solution: 'Integración con la API del proveedor de la máquina, desarrollo de aplicación web con IndexedDB para verificación de entregas, procesamiento en Node-RED, causación vía SOAP en SIESA y emisión de Facturación Electrónica con Power Automate Desktop.',
     participation: 'Diseño y desarrollo integral: consumo de API externa, interfaz HTML/IndexedDB, backend Node-RED, integración SOAP con ERP y automatización de la emisión electrónica.',
-    metrics: 'Flujo 100% automatizado y trazable desde el botón de la máquina dispensadora hasta la emisión del documento fiscal y contable en el ERP.',
-    technologies: ['Consumo de APIs REST', 'Frontend HTML / IndexedDB', 'Node-RED', 'ERP SIESA', 'SOAP', 'Power Automate Desktop']
+    metrics: '835 documentos FVP generados e integrados al flujo de facturación electrónica (27 de mayo a 22 de septiembre de 2026).',
+    technologies: ['Consumo de APIs REST', 'IndexedDB', 'Node-RED', 'ERP SIESA', 'SOAP', 'Power Automate Desktop']
   },
   6: {
-    title: 'Gestor y Control de Entrega de Almuerzos',
+    title: 'Sistema de Gestión y Trazabilidad de Entrega de Almuerzos',
     category: 'Backend, NoSQL & Reconocimiento Facial',
-    status: 'En Producción',
-    problem: 'Necesidad de automatizar y garantizar la trazabilidad en la entrega y conteo de almuerzos para el personal en sitio.',
+    status: 'En Producción Continua',
+    problem: 'Garantizar el control exacto y la trazabilidad en la entrega y conteo de almuerzos para el personal en planta.',
     solution: 'Backend en Node-RED con base de datos NoSQL MongoDB (modelado de colecciones, registros, documentos JSON y vistas de consulta) conectado a la API de reconocimiento facial de HikCentral.',
-    participation: 'Estructuración de datos en MongoDB (documentos, colecciones, vistas), desarrollo de endpoints y lógica en Node-RED e integración con las marcaciones faciales de HikCentral.',
-    metrics: 'Control exacto y en tiempo real de colaboradores que recibieron el servicio, eliminando registros manuales en papel o planillas.',
+    participation: 'Proyecto conjunto: Responsable de la lógica de negocio, backend en Node-RED, estructuración de MongoDB (documentos, colecciones, vistas) e integración con la marcación facial de HikCentral.',
+    metrics: 'Cobertura de ~266 colaboradores activos y 90–100 usos diarios de lunes a viernes, eliminando planillas manuales en papel y registrando asistencia fidedigna.',
     technologies: ['MongoDB (NoSQL / JSON)', 'Node-RED Backend', 'API HikCentral Facial', 'Modelado de Colecciones']
   }
 };
@@ -498,54 +500,16 @@ function initContactSystem() {
     }
   }
 
-  const editBtn = document.getElementById('btn-open-contact-edit');
-  const modal = document.getElementById('modal-edit-contact');
-  const closeBtn = document.getElementById('btn-close-edit-modal');
-  const cancelBtn = document.getElementById('btn-cancel-edit');
-  const saveBtn = document.getElementById('btn-save-contact');
-  const resetBtn = document.getElementById('btn-reset-contact');
-
-  const inName = document.getElementById('in-name');
-  const inEmail = document.getElementById('in-email');
-  const inPhone = document.getElementById('in-phone');
-  const inCity = document.getElementById('in-city');
-  const inLinkedin = document.getElementById('in-linkedin');
-
-  editBtn?.addEventListener('click', () => {
-    if (inName) inName.value = document.getElementById('user-name')?.textContent.trim() || 'Edson Andrés';
-    if (inEmail) inEmail.value = document.getElementById('user-email')?.textContent.trim() || '[CORREO]';
-    if (inPhone) inPhone.value = document.getElementById('user-phone')?.textContent.trim() || '[TELÉFONO]';
-    if (inCity) inCity.value = document.getElementById('user-city')?.textContent.trim() || 'Manizales, Caldas, Colombia';
-    if (inLinkedin) inLinkedin.value = document.getElementById('user-linkedin')?.textContent.trim() || '[LINKEDIN]';
-    modal?.classList.add('active');
-  });
-
-  const closeModal = () => modal?.classList.remove('active');
-  closeBtn?.addEventListener('click', closeModal);
-  cancelBtn?.addEventListener('click', closeModal);
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-
-  saveBtn?.addEventListener('click', () => {
-    const data = {
-      name: inName?.value.trim() || 'Edson Andrés',
-      email: inEmail?.value.trim() || '[CORREO]',
-      phone: inPhone?.value.trim() || '[TELÉFONO]',
-      city: inCity?.value.trim() || 'Manizales, Caldas, Colombia',
-      linkedin: inLinkedin?.value.trim() || '[LINKEDIN]'
-    };
-
-    localStorage.setItem('eatm_user_contact', JSON.stringify(data));
-    applyContactToDOM(data);
-    closeModal();
-    showToast('✅ Información de contacto actualizada en ambas vistas');
-  });
-
-  resetBtn?.addEventListener('click', () => {
-    localStorage.removeItem('eatm_user_contact');
-    location.reload();
-  });
+  // Cargar datos persistidos si existen
+  const savedContact = localStorage.getItem('eatm_user_contact');
+  if (savedContact) {
+    try {
+      const data = JSON.parse(savedContact);
+      applyContactToDOM(data);
+    } catch (e) {
+      console.warn('Error al cargar datos de contacto:', e);
+    }
+  }
 
   document.querySelectorAll('.copy-mini-btn').forEach(btn => {
     btn.addEventListener('click', () => {
