@@ -28,8 +28,6 @@
 
   <!-- ==========================================================================
        DATOS ESTRUCTURADOS JSON-LD (SCHEMA.ORG) PARA MOTORES DE BÚSQUEDA E IA
-       Permite que bots ATS y LLMs (ChatGPT, Claude, Gemini, LinkedIn)
-       extraigan la información con 100% de fidelidad y estructura canónica.
        ========================================================================== -->
   <script type="application/ld+json">
   {
@@ -105,7 +103,6 @@
     "hasOccupation": {
       "@type": "Occupation",
       "name": "Automation & Integration Specialist",
-      "occupationalCategory": "15-1252.00",
       "skills": "Node-RED, Power Automate, ERP SIESA, SOAP, SQL, MongoDB, Power BI, JavaScript"
     }
   }
@@ -113,7 +110,7 @@
 </head>
 <body itemscope itemtype="https://schema.org/Person">
 
-  <!-- Contenedor Principal Accesible -->
+  <!-- Contenedor Principal -->
   <div class="app-container">
 
     <!-- 1. Barra de Navegación Sticky -->
@@ -133,194 +130,196 @@
       </ul>
 
       <div class="nav-actions">
-        <!-- Botón Conmutador a Modo ATS -->
-        <button class="btn btn-secondary btn-ats-toggle action-toggle-ats" title="Alternar entre Vista Visual y Modo ATS Estándar">
-          📄 Modo Lectura ATS
-        </button>
         <button id="btn-theme-toggle" class="btn-icon-only" title="Cambiar tema visual" aria-label="Modo Claro u Oscuro">
           🌙
         </button>
-        <button class="btn btn-primary action-print-cv" title="Exportar a PDF o Imprimir en formato compatible ATS">
+        <button class="btn btn-primary action-print-cv" title="Exportar a PDF o Imprimir">
           <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H7v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
           PDF / Imprimir
         </button>
       </div>
     </nav>
 
-    <!-- Franja de Compatibilidad ATS & IA -->
-    <aside class="ats-meta-strip" aria-label="Compatibilidad ATS y Asistentes IA">
-      <div class="ats-meta-badge">
-        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        <span>Optimizado para Sistemas ATS & Extracción por IA (Schema JSON-LD + Microdatos)</span>
-      </div>
-      <div class="ats-meta-actions">
-        <button id="btn-open-ats-text" class="btn btn-secondary" style="font-size:0.78rem; padding:0.35rem 0.75rem;">
-          📋 Copiar Texto Plano ATS (Para Formularios)
+    <!-- 2. SELECTOR DUAL DE VISTAS (PERSONAS VS ATS/IA) -->
+    <section class="view-mode-tabs-wrapper" aria-label="Selector de Vista">
+      <div class="view-tabs-group" role="tablist">
+        <button id="tab-btn-interactive" class="view-tab active" role="tab" aria-selected="true">
+          <span class="tab-icon">👤</span>
+          <span>Portafolio Interactivo (Para Personas)</span>
+        </button>
+        <button id="tab-btn-ats" class="view-tab" role="tab" aria-selected="false">
+          <span class="tab-icon">🤖</span>
+          <span>Estructura ATS / IA (Para Parsers & Selección)</span>
         </button>
       </div>
-    </aside>
-
-    <!-- 2. Hero Section / Resumen Ejecutivo y Contacto -->
-    <header id="sobre-mi" class="hero-card" role="banner">
-      <div class="hero-status-pill">
-        <span class="pulse-dot"></span>
-        <span>Soluciones Activas en Producción • GELCO S.A.S.</span>
+      <div class="view-quick-actions">
+        <button id="btn-open-ats-text" class="btn btn-secondary" style="font-size:0.8rem; padding:0.45rem 0.8rem;">
+          📋 Copiar Texto Plano ATS
+        </button>
       </div>
+    </section>
 
-      <div class="hero-header-flex">
-        <div>
-          <h1 class="hero-name" id="user-name" itemprop="name">Edson Andrés</h1>
-          <div class="hero-role">
-            <span itemprop="jobTitle">Auxiliar de Tecnología</span>
-            <span class="hero-role-bullet">&bull;</span>
-            <span class="hero-role-sub">Automatización (RPA), Integración de Sistemas (ERP SIESA) & Desarrollo</span>
-          </div>
+    <!-- ====================================================================
+         VISTA 1: PORTAFOLIO INTERACTIVO (DISEÑADO PARA PERSONAS / RECLUTADORES)
+         ==================================================================== -->
+    <div id="view-interactive">
 
-          <div class="hero-company-info" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-            <span>Empresa: <strong itemprop="name">GELCO / Productora de Gelatina S.A.S.</strong> (Julio 2024 – Actualidad)</span>
+      <!-- Hero Section / Perfil -->
+      <header id="sobre-mi" class="hero-card">
+        <div class="hero-status-pill">
+          <span class="pulse-dot"></span>
+          <span>Soluciones Activas en Producción • GELCO S.A.S.</span>
+        </div>
+
+        <div class="hero-header-flex">
+          <div>
+            <h1 class="hero-name" id="user-name" itemprop="name">Edson Andrés</h1>
+            <div class="hero-role">
+              <span itemprop="jobTitle">Auxiliar de Tecnología</span>
+              <span class="hero-role-bullet">&bull;</span>
+              <span class="hero-role-sub">Automatización (RPA), Integración de Sistemas (ERP SIESA) & Desarrollo</span>
+            </div>
+
+            <div class="hero-company-info" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <span>Empresa: <strong itemprop="name">GELCO / Productora de Gelatina S.A.S.</strong> (Julio 2024 – Actualidad)</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Resumen Profesional legible por ATS -->
-      <section aria-label="Resumen Profesional">
         <p class="hero-summary" itemprop="description">
           Tecnólogo en Análisis y Programación de Sistemas de Información con formación activa en Ingeniería Informática en la Universidad de Caldas. Con experiencia demostrada en entornos corporativos e industriales en <strong>GELCO S.A.S.</strong>, asumiendo de forma integral la transformación digital operativa: levantamiento de requerimientos con usuarios clave, desarrollo de software frontend/backend, integración directa con el ERP corporativo (SIESA) mediante APIs y servicios SOAP, automatización de procesos (RPA con Node-RED y Power Automate), administración de bases de datos relacionales y documentales (SQL Server, MongoDB) y monitoreo de impacto continuo mediante tableros Power BI.
         </p>
+
+        <div class="hero-cta-group">
+          <button class="btn btn-primary action-print-cv">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Descargar Hoja de Vida (PDF)
+          </button>
+          <button id="btn-open-contact-edit" class="btn btn-secondary">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            Personalizar Datos de Contacto
+          </button>
+          <button class="btn btn-secondary trigger-ats-view">
+            Ver Estructura Canónica ATS &rarr;
+          </button>
+        </div>
+
+        <!-- Barra de Contacto Directo -->
+        <div class="contact-strip" itemscope itemtype="https://schema.org/ContactPoint">
+          <div class="contact-pill">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a id="user-email-link" href="mailto:edson.andres.tech@gmail.com" itemprop="email"><span id="user-email">[CORREO]</span></a>
+            <button class="copy-mini-btn" data-target="user-email" title="Copiar correo">📋</button>
+          </div>
+
+          <div class="contact-pill">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span id="user-phone" itemprop="telephone">[TELÉFONO]</span>
+            <button class="copy-mini-btn" data-target="user-phone" title="Copiar teléfono">📋</button>
+          </div>
+
+          <div class="contact-pill" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span id="user-city" itemprop="addressLocality">Manizales, Caldas, Colombia</span>
+          </div>
+
+          <div class="contact-pill">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <a id="user-linkedin" href="https://linkedin.com" target="_blank" rel="noopener" itemprop="sameAs">[LINKEDIN]</a>
+            <button class="copy-mini-btn" data-target="user-linkedin" title="Copiar enlace">📋</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Métricas de Impacto -->
+      <section class="metrics-section" aria-label="Métricas Clave de Producción">
+        <div class="metric-box accent-teal">
+          <div class="metric-val">&lt; 1:09 min</div>
+          <div class="metric-title">Tiempo por Ejecución</div>
+          <p class="metric-sub">Puntos de Reorden: De un proceso manual de ~3 horas semanales a menos de 1m 09s por ciclo automatizado.</p>
+        </div>
+
+        <div class="metric-box accent-indigo">
+          <div class="metric-val">1.168</div>
+          <div class="metric-title">Facturas Contabilizadas</div>
+          <p class="metric-sub">Automatización de causación directa en ERP SIESA activa en producción desde marzo de 2026.</p>
+        </div>
+
+        <div class="metric-box accent-emerald">
+          <div class="metric-val">40–50+</div>
+          <div class="metric-title">Requisiciones Diarias</div>
+          <p class="metric-sub">Flujo RQC / GelcoInfo integrado con SIESA; elimina cerca de 2 horas diarias de doble digitación.</p>
+        </div>
+
+        <div class="metric-box">
+          <div class="metric-val">+1.175</div>
+          <div class="metric-title">Órdenes Trazadas</div>
+          <p class="metric-sub">Monitoreo y auditoría de abastecimiento en Power BI (127 órdenes en estado aprobado).</p>
+        </div>
       </section>
 
-      <!-- Botones de Acción -->
-      <div class="hero-cta-group">
-        <button class="btn btn-primary action-print-cv">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-          Descargar Hoja de Vida (PDF ATS)
-        </button>
-        <button id="btn-open-contact-edit" class="btn btn-secondary">
-          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-          Personalizar Datos de Contacto
-        </button>
-        <a href="#proyectos" class="btn btn-secondary">
-          Explorar 6 Proyectos en Producción &darr;
-        </a>
-      </div>
-
-      <!-- Barra de Contacto Directo con Microdatos -->
-      <div class="contact-strip" itemscope itemtype="https://schema.org/ContactPoint">
-        <div class="contact-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <a id="user-email-link" href="mailto:edson.andres.tech@gmail.com" itemprop="email"><span id="user-email">[CORREO]</span></a>
-          <button class="copy-mini-btn" data-target="user-email" title="Copiar correo">📋</button>
+      <!-- Pipeline Interactivo de Arquitectura -->
+      <section id="pipeline" class="pipeline-section" aria-label="Metodología de Arquitectura e Integración">
+        <div class="pipeline-header">
+          <h2 class="pipeline-title">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Metodología de Integración End-to-End
+          </h2>
+          <p class="pipeline-desc">Haz clic en cada fase para ver cómo conecto los requerimientos operativos con el software y el ERP en producción:</p>
         </div>
 
-        <div class="contact-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-          <span id="user-phone" itemprop="telephone">[TELÉFONO]</span>
-          <button class="copy-mini-btn" data-target="user-phone" title="Copiar teléfono">📋</button>
+        <div class="pipeline-flow">
+          <div class="pipeline-node active" data-step="1">
+            <div class="node-step-tag">Fase 01</div>
+            <div class="node-name">Diagnóstico & Lógica</div>
+            <div class="node-tech">Requerimientos &bull; Flujos</div>
+          </div>
+
+          <div class="pipeline-node" data-step="2">
+            <div class="node-step-tag">Fase 02</div>
+            <div class="node-name">Frontend & APIs</div>
+            <div class="node-tech">HTML5 &bull; IndexedDB &bull; IoT</div>
+          </div>
+
+          <div class="pipeline-node" data-step="3">
+            <div class="node-step-tag">Fase 03</div>
+            <div class="node-name">Node-RED & RPA</div>
+            <div class="node-tech">Orquestación &bull; Power Automate</div>
+          </div>
+
+          <div class="pipeline-node" data-step="4">
+            <div class="node-step-tag">Fase 04</div>
+            <div class="node-name">SIESA ERP & BD</div>
+            <div class="node-tech">SOAP &bull; SQL Server &bull; MongoDB</div>
+          </div>
+
+          <div class="pipeline-node" data-step="5">
+            <div class="node-step-tag">Fase 05</div>
+            <div class="node-name">Power BI Monitoreo</div>
+            <div class="node-tech">Dashboards &bull; Auditoría</div>
+          </div>
         </div>
 
-        <div class="contact-pill" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span id="user-city" itemprop="addressLocality">Manizales, Caldas, Colombia</span>
+        <!-- Detalle dinámico del paso -->
+        <div class="pipeline-detail-card">
+          <div class="pipeline-detail-text">
+            <strong id="pipeline-step-title">Paso 1: Diagnóstico Operativo & Toma de Requerimientos</strong>
+            <p id="pipeline-step-desc" style="margin-top:0.25rem;">Análisis directo en planta con usuarios clave. Mapeo del proceso manual, reglas de validación y detección de cuellos de botella.</p>
+          </div>
+          <div style="font-size:0.82rem; display:flex; flex-direction:column; gap:0.25rem;">
+            <span id="pipeline-step-tech"><strong>Tecnologías Clave:</strong> Flujogramas, Definición de Lógica de Negocio, Reglas de validación</span>
+            <span id="pipeline-step-projects"><strong>Evidencia:</strong> Aplicado en Puntos de Reorden, Doble digitación RQC, Turnos de planta</span>
+          </div>
         </div>
+      </section>
 
-        <div class="contact-pill">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          <a id="user-linkedin" href="https://linkedin.com" target="_blank" rel="noopener" itemprop="sameAs">[LINKEDIN]</a>
-          <button class="copy-mini-btn" data-target="user-linkedin" title="Copiar enlace">📋</button>
-        </div>
-      </div>
-    </header>
-
-    <!-- 3. Contadores Dinámicos de Métricas de Producción -->
-    <section class="metrics-section" aria-label="Métricas Clave de Producción">
-      <div class="metric-box accent-teal">
-        <div class="metric-val">&lt; 1:09 min</div>
-        <div class="metric-title">Tiempo por Ejecución</div>
-        <p class="metric-sub">Puntos de Reorden: De un proceso manual de ~3 horas semanales a menos de 1m 09s por ciclo automatizado.</p>
-      </div>
-
-      <div class="metric-box accent-indigo">
-        <div class="metric-val">1.168</div>
-        <div class="metric-title">Facturas Contabilizadas</div>
-        <p class="metric-sub">Automatización de causación directa en ERP SIESA activa en producción desde marzo de 2026.</p>
-      </div>
-
-      <div class="metric-box accent-emerald">
-        <div class="metric-val">40–50+</div>
-        <div class="metric-title">Requisiciones Diarias</div>
-        <p class="metric-sub">Flujo RQC / GelcoInfo integrado con SIESA; elimina cerca de 2 horas diarias de doble digitación.</p>
-      </div>
-
-      <div class="metric-box">
-        <div class="metric-val">+1.175</div>
-        <div class="metric-title">Órdenes Trazadas</div>
-        <p class="metric-sub">Monitoreo y auditoría de abastecimiento en Power BI (127 órdenes en estado aprobado).</p>
-      </div>
-    </section>
-
-    <!-- 4. Pipeline Interactivo de Arquitectura -->
-    <section id="pipeline" class="pipeline-section" aria-label="Metodología de Arquitectura e Integración">
-      <div class="pipeline-header">
-        <h2 class="pipeline-title">
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          Metodología de Integración End-to-End
-        </h2>
-        <p class="pipeline-desc">Haz clic en cada fase para ver cómo conecto los requerimientos operativos con el software y el ERP en producción:</p>
-      </div>
-
-      <div class="pipeline-flow">
-        <div class="pipeline-node active" data-step="1">
-          <div class="node-step-tag">Fase 01</div>
-          <div class="node-name">Diagnóstico & Lógica</div>
-          <div class="node-tech">Requerimientos &bull; Flujos</div>
-        </div>
-
-        <div class="pipeline-node" data-step="2">
-          <div class="node-step-tag">Fase 02</div>
-          <div class="node-name">Frontend & APIs</div>
-          <div class="node-tech">HTML5 &bull; IndexedDB &bull; IoT</div>
-        </div>
-
-        <div class="pipeline-node" data-step="3">
-          <div class="node-step-tag">Fase 03</div>
-          <div class="node-name">Node-RED & RPA</div>
-          <div class="node-tech">Orquestación &bull; Power Automate</div>
-        </div>
-
-        <div class="pipeline-node" data-step="4">
-          <div class="node-step-tag">Fase 04</div>
-          <div class="node-name">SIESA ERP & BD</div>
-          <div class="node-tech">SOAP &bull; SQL Server &bull; MongoDB</div>
-        </div>
-
-        <div class="pipeline-node" data-step="5">
-          <div class="node-step-tag">Fase 05</div>
-          <div class="node-name">Power BI Monitoreo</div>
-          <div class="node-tech">Dashboards &bull; Auditoría</div>
-        </div>
-      </div>
-
-      <!-- Tarjeta Dinámica de Detalle del Paso -->
-      <div class="pipeline-detail-card">
-        <div class="pipeline-detail-text">
-          <strong id="pipeline-step-title">Paso 1: Diagnóstico Operativo & Toma de Requerimientos</strong>
-          <p id="pipeline-step-desc" style="margin-top:0.25rem;">Análisis directo en planta con usuarios clave. Mapeo del proceso manual, reglas de validación y detección de cuellos de botella.</p>
-        </div>
-        <div style="font-size:0.8rem; display:flex; flex-direction:column; gap:0.25rem;">
-          <span id="pipeline-step-tech"><strong>Tecnologías Clave:</strong> Flujogramas, Definición de Lógica de Negocio, Reglas de validación</span>
-          <span id="pipeline-step-projects"><strong>Evidencia:</strong> Aplicado en Puntos de Reorden, Doble digitación RQC, Turnos de planta</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. Experiencia & Trayectoria Profesional -->
-    <main>
+      <!-- Experiencia & Trayectoria -->
       <section id="experiencia" class="experience-card" aria-label="Experiencia Laboral">
         <div class="section-heading-wrap">
           <h2 class="section-main-title">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-            Experiencia Laboral
+            Trayectoria Profesional
           </h2>
           <span class="exp-period-badge">
             <time datetime="2024-07-25">25 de julio de 2024</time> – Actualidad (Activo)
@@ -334,7 +333,6 @@
           </div>
         </div>
 
-        <!-- Fases de Carrera / Evolución en Gelco -->
         <div class="career-phases">
           <div class="phase-item">
             <div class="phase-step-num">1</div>
@@ -361,7 +359,6 @@
           </div>
         </div>
 
-        <!-- Responsabilidades Reales -->
         <div class="responsibilities-grid">
           <div class="resp-card">
             <strong>Automatización de Procesos (RPA)</strong>
@@ -390,7 +387,7 @@
         </div>
       </section>
 
-      <!-- 6. Portafolio de Proyectos Destacados en Producción -->
+      <!-- Portafolio de Proyectos Destacados -->
       <section id="proyectos" aria-label="Proyectos Técnicos Relevantes">
         <div class="section-heading-wrap">
           <h2 class="section-main-title">
@@ -575,7 +572,7 @@
         </div>
       </section>
 
-      <!-- 7. Matriz de Competencias con Buscador Interactivo -->
+      <!-- Matriz de Competencias -->
       <section id="habilidades" class="skills-section-wrapper" aria-label="Habilidades y Competencias Técnicas">
         <div class="section-heading-wrap">
           <h2 class="section-main-title">
@@ -584,7 +581,6 @@
           </h2>
         </div>
 
-        <!-- Buscador en tiempo real -->
         <div class="skills-search-bar">
           <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
           <input type="text" id="input-skill-search" placeholder="Buscar tecnología (ej: Node-RED, SQL, SOAP, Power BI, JavaScript)..." aria-label="Buscar habilidad técnica">
@@ -592,7 +588,6 @@
 
         <div class="skills-categories-grid">
 
-          <!-- Categoría 1 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">⚡ Automatización & RPA</h3>
             <div class="skills-items-list">
@@ -619,7 +614,6 @@
             </div>
           </div>
 
-          <!-- Categoría 2 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">🔗 Integraciones & APIs</h3>
             <div class="skills-items-list">
@@ -646,7 +640,6 @@
             </div>
           </div>
 
-          <!-- Categoría 3 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">💻 Desarrollo de Software</h3>
             <div class="skills-items-list">
@@ -673,7 +666,6 @@
             </div>
           </div>
 
-          <!-- Categoría 4 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">📊 Datos & Power BI</h3>
             <div class="skills-items-list">
@@ -700,7 +692,6 @@
             </div>
           </div>
 
-          <!-- Categoría 5 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">🏢 Sistemas Empresariales</h3>
             <div class="skills-items-list">
@@ -723,7 +714,6 @@
             </div>
           </div>
 
-          <!-- Categoría 6 -->
           <div class="skill-domain-card">
             <h3 class="skill-domain-title">📋 Metodología & Procesos</h3>
             <div class="skills-items-list">
@@ -749,7 +739,7 @@
         </div>
       </section>
 
-      <!-- 8. Educación Formal & Formación -->
+      <!-- Educación & Idiomas -->
       <section id="educacion" class="education-section" aria-label="Educación y Formación Académica">
         <div class="section-heading-wrap">
           <h2 class="section-main-title">
@@ -808,12 +798,218 @@
           </div>
         </div>
       </section>
-    </main>
+
+    </div> <!-- FIN DE VISTA 1 INTERACTIVA -->
+
+    <!-- ====================================================================
+         VISTA 2: ESTRUCTURA CANÓNICA ATS / IA (DISEÑADA PARA PARSERS & BOTS)
+         ==================================================================== -->
+    <div id="view-ats">
+
+      <!-- Barra superior de la vista ATS -->
+      <div class="ats-view-banner">
+        <div class="ats-banner-text">
+          <h3>Estructura Canónica para Sistemas ATS y Modelos de Inteligencia Artificial</h3>
+          <p>Formato lineal estándar, sin columnas complejas ni artefactos que confundan a motores de selección automática (Workday, Greenhouse, Taleo).</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-primary action-print-cv">
+            🖨️ Imprimir Formato ATS
+          </button>
+        </div>
+      </div>
+
+      <!-- Hoja de Currículum Canónico ATS -->
+      <article class="ats-document-sheet">
+
+        <!-- Encabezado Estándar ATS -->
+        <header class="ats-doc-header">
+          <h1 class="ats-doc-name" id="ats-doc-display-name">EDSON ANDRÉS</h1>
+          <p class="ats-doc-headline">AUXILIAR DE TECNOLOGÍA | AUTOMATIZACIÓN (RPA), INTEGRACIÓN ERP & DESARROLLO</p>
+          <div class="ats-doc-contacts">
+            <span id="ats-doc-city">Manizales, Caldas, Colombia</span>
+            <span id="ats-doc-email">[CORREO]</span>
+            <span id="ats-doc-phone">[TELÉFONO]</span>
+            <span id="ats-doc-linkedin">[LINKEDIN]</span>
+          </div>
+        </header>
+
+        <!-- 1. Perfil Profesional ATS -->
+        <section class="ats-doc-section">
+          <h2 class="ats-doc-section-title">PERFIL PROFESIONAL</h2>
+          <p class="ats-doc-paragraph">
+            Tecnólogo en Análisis y Programación de Sistemas de Información con formación activa en Ingeniería Informática en la Universidad de Caldas. Con trayectoria práctica en GELCO / Productora de Gelatina S.A.S. asumiendo el ciclo integral de desarrollo, integración de sistemas y automatización de procesos operativos (RPA). Especializado en conectar el ERP corporativo (SIESA) mediante servicios SOAP y REST con aplicaciones internas, bases de datos (SQL Server, MongoDB) y tableros de control en Power BI. Enfoque comprobado en la eliminación de reprocesos, trazabilidad y optimización operativa en entornos industriales y corporativos de producción continua.
+          </p>
+        </section>
+
+        <!-- 2. Matriz de Habilidades Clave ATS (Keywords para filtros automáticos) -->
+        <section class="ats-doc-section">
+          <h2 class="ats-doc-section-title">COMPETENCIAS TÉCNICAS CLAVE</h2>
+          <div class="ats-doc-skills-grid">
+            <div class="ats-doc-skill-category">
+              <strong>Automatización de Procesos & RPA:</strong>
+              <p>Node-RED (Dominio Avanzado), Power Automate Desktop, Power Automate Cloud, n8n, Flujos Transaccionales.</p>
+            </div>
+            <div class="ats-doc-skill-category">
+              <strong>Integración de Sistemas & ERP:</strong>
+              <p>ERP SIESA, Servicios Web SOAP, SOAP UI, Esquemas XML, Endpoints REST, HTTP APIs, API HikCentral.</p>
+            </div>
+            <div class="ats-doc-skill-category">
+              <strong>Bases de Datos & BI:</strong>
+              <p>Power BI (Dashboards/Reportes embebidos), SQL Server, MySQL, MongoDB NoSQL (Colecciones y Vistas JSON).</p>
+            </div>
+            <div class="ats-doc-skill-category">
+              <strong>Desarrollo de Software:</strong>
+              <p>JavaScript (Vanilla / ES6+), HTML5, CSS3, IndexedDB, Desarrollo Frontend & Backend, Lógica de Negocio.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Experiencia Laboral ATS -->
+        <section class="ats-doc-section">
+          <h2 class="ats-doc-section-title">EXPERIENCIA LABORAL</h2>
+          <div class="ats-doc-job-block">
+            <div class="ats-doc-job-header">
+              <span class="ats-doc-job-title">AUXILIAR DE TECNOLOGÍA</span>
+              <span class="ats-doc-job-dates">25 de julio de 2024 – Actualidad (Activo)</span>
+            </div>
+            <div class="ats-doc-job-company">GELCO / Productora de Gelatina S.A.S. &bull; Manizales, Caldas, Colombia</div>
+            <p class="ats-doc-paragraph" style="margin-bottom:0.6rem; font-style:italic;">
+              Trayectoria: 6 meses de práctica profesional &rarr; ~1 año mediante bolsa de empleo &rarr; Vinculación directa desde febrero de 2026.
+            </p>
+            <ul class="ats-doc-bullets">
+              <li>
+                <strong>Automatización de Procesos (RPA):</strong> Desarrollo y despliegue de flujos de automatización de extremo a extremo utilizando Node-RED y Power Automate (Desktop y Cloud) para suprimir tareas operativas manuales y minimizar fallas humanas.
+              </li>
+              <li>
+                <strong>Integración con ERP SIESA:</strong> Diseño y consumo de servicios web SOAP mediante esquemas XML estructurados y endpoints REST para la creación automática de solicitudes de inventario, causaciones contables y facturación electrónica.
+              </li>
+              <li>
+                <strong>Bases de Datos en Producción:</strong> Elaboración de consultas complejas de extracción y cruce de información en SQL Server y MySQL, junto con estructuración de colecciones y documentos JSON en base de datos NoSQL MongoDB.
+              </li>
+              <li>
+                <strong>Analítica y Business Intelligence:</strong> Construcción y mantenimiento de tableros de control en Power BI integrados en tiempo real a los flujos automatizados para auditoría operativa y seguimiento de indicadores.
+              </li>
+              <li>
+                <strong>Ciclo de Vida de Software:</strong> Levantamiento directo de requerimientos con líderes de área, definición y negociación de lógica de negocio, documentación técnica y funcional, entrega a producción y soporte continuo.
+              </li>
+              <li>
+                <strong>Soporte Técnico Especializado:</strong> Atención y resolución de incidencias en niveles N1, N2 y N3, administración de cuentas y perfiles de usuario y soporte operativo de infraestructura de redes.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 4. Proyectos Destacados en Producción ATS -->
+        <section class="ats-doc-section">
+          <h2 class="ats-doc-section-title">PROYECTOS TÉCNICOS EN PRODUCCIÓN</h2>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">1. Automatización de Solicitudes de Puntos de Reorden (SPR) — ERP SIESA</div>
+            <div class="ats-doc-project-techs">Tecnologías: Node-RED, ERP SIESA, SOAP, XML, SQL Server, Power Automate, Power BI</div>
+            <p class="ats-doc-paragraph">
+              <strong>Problema:</strong> Detección semanal manual de inventarios críticos mediante hojas de cálculo Excel y digitación individual en el ERP (~3 horas semanales dedicadas por el responsable).<br>
+              <strong>Solución:</strong> Automatización completa en Node-RED consumiendo servicios SOAP de SIESA con inyección de XML, consultas a SQL Server y visualización en Power BI.<br>
+              <strong>Resultado:</strong> Reducción del tiempo de ~3 horas semanales a menos de 1 minuto 9 segundos por ejecución. Generación continua de solicitudes (8–20+ ítems c/u). Más de 1.175 órdenes de compra generadas y monitoreadas en Power BI (127 aprobadas).
+            </p>
+          </div>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">2. Software de Programación y Gestión de Turnos de Planta (12 Horas)</div>
+            <div class="ats-doc-project-techs">Tecnologías: JavaScript, HTML5/CSS3, Algoritmo de Rotación, API HikCentral Facial, Backend</div>
+            <p class="ats-doc-paragraph">
+              <strong>Solución:</strong> Desarrollo desde cero de una aplicación interna con algoritmo de asignación de secuencias de rotación para turnos de 12 horas, módulo de novedades (vacaciones, incapacidades) e integración con API HikCentral de reconocimiento facial.<br>
+              <strong>Resultado:</strong> Generación estructurada de la programación y contrastación en tiempo real de presencia física en planta frente a la malla planificada.
+            </p>
+          </div>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">3. Contabilización Automática de Facturas de Proveedores — ERP SIESA</div>
+            <div class="ats-doc-project-techs">Tecnologías: Node-RED, SOAP UI, Power Automate Web, SQL Server, SharePoint, ERP SIESA</div>
+            <p class="ats-doc-paragraph">
+              <strong>Solución:</strong> Versión 2 de integración automatizada directa con Node-RED, eliminando clics visuales. Cruza entradas de almacén, órdenes de compra y facturas con validación de reglas contables e impuestos en SIESA.<br>
+              <strong>Resultado:</strong> En producción desde marzo de 2026 con 1.168 facturas contabilizadas. Período auditado con 603 documentos procesados (538 completamente exitosos; las 65 anulaciones correspondieron a pruebas controladas).
+            </p>
+          </div>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">4. Automatización de Doble Digitación y Flujo de Requisiciones (RQC / GelcoInfo)</div>
+            <div class="ats-doc-project-techs">Tecnologías: SIESA ERP, GelcoInfo, Node-RED, SQL Server, Power Automate, Power BI</div>
+            <p class="ats-doc-paragraph">
+              <strong>Solución:</strong> Integración bidireccional entre SIESA y GelcoInfo para procesar requisiciones de almacén y salidas de insumos (PTAR, SST, paqueteo, mezclas) con aprobaciones automáticas y reportes embebidos.<br>
+              <strong>Resultado:</strong> Atención automática de 40 a 50+ requisiciones diarias con trazabilidad completa, mitigando aproximadamente 2 horas diarias de trabajo operativo manual.
+            </p>
+          </div>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">5. Facturación Automática de Máquina Vending de Colágeno</div>
+            <div class="ats-doc-project-techs">Tecnologías: API REST, Frontend HTML / IndexedDB, Node-RED, SOAP SIESA, Facturación Electrónica</div>
+            <p class="ats-doc-paragraph">
+              <strong>Solución:</strong> Integración con API de máquina dispensadora, interfaz web con IndexedDB para validación de entregas por el usuario, procesamiento en Node-RED, causación SOAP en SIESA y Facturación Electrónica con Power Automate Desktop.<br>
+              <strong>Resultado:</strong> Proceso 100% digitalizado desde la dispensación física hasta el comprobante fiscal en el ERP.
+            </p>
+          </div>
+
+          <div class="ats-doc-project-entry">
+            <div class="ats-doc-project-name">6. Gestor y Control de Entrega de Almuerzos</div>
+            <div class="ats-doc-project-techs">Tecnologías: MongoDB (NoSQL / JSON), Node-RED Backend, API HikCentral Facial</div>
+            <p class="ats-doc-paragraph">
+              <strong>Solución:</strong> Backend en Node-RED con base de datos NoSQL MongoDB (modelado de colecciones, registros y vistas) conectado a la API de reconocimiento facial de HikCentral.<br>
+              <strong>Resultado:</strong> Control y conteo exacto en tiempo real de colaboradores que recibieron el servicio, eliminando registros manuales en papel.
+            </p>
+          </div>
+
+        </section>
+
+        <!-- 5. Educación ATS -->
+        <section class="ats-doc-section">
+          <h2 class="ats-doc-section-title">EDUCACIÓN FORMAL</h2>
+          
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Ingeniería Informática</span>
+            <span class="ats-doc-edu-school">Universidad de Caldas</span>
+            <span class="ats-doc-edu-status">Primer semestre — En curso</span>
+          </div>
+
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Tecnólogo en Análisis y Programación de Sistemas de Información</span>
+            <span class="ats-doc-edu-school">Universidad Autónoma de Manizales</span>
+            <span class="ats-doc-edu-status">Graduado</span>
+          </div>
+
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Técnico Profesional en Sistemas</span>
+            <span class="ats-doc-edu-school">Universidad Autónoma de Manizales</span>
+            <span class="ats-doc-edu-status">Graduado</span>
+          </div>
+
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Técnico Laboral en Sistemas</span>
+            <span class="ats-doc-edu-school">Universidad Autónoma de Manizales</span>
+            <span class="ats-doc-edu-status">Graduado</span>
+          </div>
+
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Bachiller Técnico en Sistemas</span>
+            <span class="ats-doc-edu-school">Instituto Técnico Francisco José de Caldas</span>
+            <span class="ats-doc-edu-status">Graduado</span>
+          </div>
+
+          <div class="ats-doc-edu-item">
+            <span class="ats-doc-edu-title">Diplomado de Inglés</span>
+            <span class="ats-doc-edu-school">Universidad Católica de Manizales</span>
+            <span class="ats-doc-edu-status">Nivel por confirmar &bull; Español Nativo</span>
+          </div>
+        </section>
+
+      </article>
+
+    </div> <!-- FIN DE VISTA 2 ATS -->
 
     <!-- Footer Corporativo -->
     <footer class="app-footer" role="contentinfo">
       <p>Portafolio y Hoja de Vida Profesional de <strong>Edson Andrés</strong> &bull; Respaldo de soluciones en producción en GELCO S.A.S.</p>
-      <p style="margin-top:0.35rem; font-size:0.75rem;">Optimizado para lectura ejecutiva, compatibilidad ATS, Schema.org y navegación interactiva.</p>
+      <p style="margin-top:0.35rem; font-size:0.75rem;">Diseño Dual: Portafolio Interactivo para Personas & Estructura Canónica para ATS e Inteligencia Artificial.</p>
     </footer>
 
   </div>
@@ -877,14 +1073,14 @@
       </div>
 
       <div class="modal-content-area">
-        <p style="font-size:0.84rem; color:var(--text-secondary);">
+        <p style="font-size:0.88rem; color:var(--text-secondary); font-weight:500;">
           Este formato en texto plano sin caracteres extraños es el ideal para pegar en portales de empleo (Workday, Taleo, Greenhouse, Lever, LinkedIn Easy Apply) o para ser procesado por analizadores automáticos de currículum (ATS) e Inteligencia Artificial.
         </p>
 
         <pre id="ats-text-preview" class="ats-code-preview"></pre>
       </div>
 
-      <div class="modal-top-bar" style="border-top:1px solid var(--border-light); border-bottom:none; position:static;">
+      <div class="modal-top-bar" style="border-top:1.5px solid var(--border-light); border-bottom:none; position:static;">
         <button id="btn-download-ats-txt" class="btn btn-secondary">
           💾 Descargar como .TXT
         </button>
@@ -904,7 +1100,7 @@
       </div>
 
       <div class="modal-content-area">
-        <p style="font-size:0.84rem; color:var(--text-secondary);">
+        <p style="font-size:0.88rem; color:var(--text-secondary); font-weight:500;">
           Actualiza tus datos para que aparezcan en el encabezado, en la vista ATS y en el documento impreso. Se guardan en tu navegador localmente.
         </p>
 
@@ -934,7 +1130,7 @@
         </div>
       </div>
 
-      <div class="modal-top-bar" style="border-top:1px solid var(--border-light); border-bottom:none; position:static;">
+      <div class="modal-top-bar" style="border-top:1.5px solid var(--border-light); border-bottom:none; position:static;">
         <button id="btn-reset-contact" class="btn btn-secondary" style="color:#ef4444; border-color:transparent;">Restablecer</button>
         <div style="display:flex; gap:0.5rem;">
           <button id="btn-cancel-edit" class="btn btn-secondary">Cancelar</button>

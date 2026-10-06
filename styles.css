@@ -1,48 +1,52 @@
 /* ==========================================================================
-   PORTAFOLIO & HOJA DE VIDA PROFESIONAL - EDSON ANDRÉS
-   Sistema de Diseño: Paleta Normalizada de Alto Contraste (Claro & Oscuro)
-   Optimizado para: Máxima legibilidad humana, accesibilidad WCAG AAA y ATS
+   PORTAFOLIO & HOJA DE VIDA DUAL (INTERACTIVO + ESTRUCTURA ATS) - EDSON ANDRÉS
+   Diseño de Alta Fidelidad:
+   - Pestaña 1: Portafolio Interactivo para Personas (Llamativo, dinámico, moderno).
+   - Pestaña 2: Estructura Canónica ATS para IA & Parsers (Lineal, semántica y limpia).
+   Contraste normalizado garantizado al 100% en Modo Claro y Modo Oscuro.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES DE DISEÑO & PALETAS NORMALIZADAS
+   1. PALETAS NORMALIZADAS (WCAG AAA - NUNCA SE PIERDE TEXTO)
    -------------------------------------------------------------------------- */
 :root {
-  /* MODO CLARO NORMALIZADO (Tecnológico Ejecutivo - Alto Contraste) */
-  --bg-body: #eef2f6;               /* Fondo sutilmente contrastado para destacar tarjetas */
+  /* MODO CLARO NORMALIZADO */
+  --bg-body: #edf2f7;               /* Gris slate suave que contrasta con tarjetas blancas */
   --bg-surface: #ffffff;            /* Fondo de tarjeta blanco puro */
   --bg-surface-elevated: #ffffff;
-  --bg-subtle: #e2e8f0;             /* Gris suave para píldoras y tags */
-  --bg-subtle-hover: #cbd5e1;
+  --bg-subtle: #e2e8f0;             /* Gris claro para tags y píldoras */
   --bg-glass: rgba(255, 255, 255, 0.95);
 
-  --primary: #1d4ed8;               /* Azul corporativo nítido (WCAG AAA) */
+  --primary: #1d4ed8;               /* Azul corporativo nítido */
   --primary-hover: #1e40af;
-  --primary-light: #eff6ff;         /* Tinte azul suave para cajas activas */
-  --primary-border: #93c5fd;        /* Borde azul definido */
+  --primary-light: #eff6ff;         /* Tinte azul para cajas activas */
+  --primary-border: #93c5fd;
   --primary-glow: rgba(29, 78, 216, 0.15);
+  --btn-primary-bg: #1d4ed8;
+  --btn-primary-hover: #1e40af;
+  --btn-primary-text: #ffffff;
 
-  --accent-teal: #0f766e;           /* Verde azulado para RPA / Automatización */
+  --accent-teal: #0f766e;
   --accent-teal-bg: #ccfbf1;
   --accent-teal-border: #5eead4;
 
-  --accent-indigo: #4338ca;         /* Índigo para Integraciones */
+  --accent-indigo: #4338ca;
   --accent-indigo-bg: #e0e7ff;
   --accent-indigo-border: #a5b4fc;
 
-  --accent-emerald: #15803d;        /* Verde para producción activa */
+  --accent-emerald: #15803d;
   --accent-emerald-bg: #dcfce7;
   --accent-emerald-border: #86efac;
 
-  /* Textos Normalizados en Modo Claro (Cero pérdida de información) */
-  --text-primary: #0f172a;          /* Slate 900: Títulos y textos principales */
-  --text-secondary: #334155;        /* Slate 700: Párrafos y descripciones nítidas */
-  --text-tertiary: #475569;         /* Slate 600: Metadatos y etiquetas legibles */
-  --text-inverse: #ffffff;
+  /* TEXTOS EN MODO CLARO (Máxima legibilidad) */
+  --text-primary: #0f172a;          /* Slate 900: Casi negro para títulos */
+  --text-secondary: #1e293b;        /* Slate 800: Oscuro para descripciones */
+  --text-tertiary: #334155;         /* Slate 700: Metadatos claramente legibles */
+  --text-muted: #475569;            /* Slate 600: Aclaraciones */
 
-  /* Bordes Visibles y Definidos en Modo Claro */
-  --border-light: #cbd5e1;          /* Slate 300: Bordes de tarjetas claramente visibles */
-  --border-medium: #94a3b8;         /* Slate 400: Separadores y bordes de botones */
+  /* BORDES VISIBLES EN MODO CLARO */
+  --border-light: #cbd5e1;          /* Slate 300: Bordes de tarjeta bien definidos */
+  --border-medium: #94a3b8;         /* Slate 400: Separadores fuertes */
   --border-focus: #1d4ed8;
 
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
@@ -58,20 +62,22 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
 }
 
-/* MODO OSCURO NORMALIZADO (Obsidian Slate Tecnológico) */
+/* MODO OSCURO NORMALIZADO */
 body.dark-theme {
   --bg-body: #0b1120;               /* Fondo azul noche profundo */
   --bg-surface: #131c2e;            /* Fondo de tarjeta visible y diferenciado */
   --bg-surface-elevated: #1e293b;
-  --bg-subtle: #1e293b;             /* Slate 800 para píldoras y tags */
-  --bg-subtle-hover: #334155;
+  --bg-subtle: #1e293b;             /* Slate 800 */
   --bg-glass: rgba(19, 28, 46, 0.94);
 
-  --primary: #60a5fa;               /* Azul claro luminoso para fondo oscuro */
+  --primary: #60a5fa;               /* Azul luminoso */
   --primary-hover: #93c5fd;
   --primary-light: rgba(59, 130, 246, 0.18);
   --primary-border: #2563eb;
   --primary-glow: rgba(96, 165, 250, 0.25);
+  --btn-primary-bg: #2563eb;
+  --btn-primary-hover: #1d4ed8;
+  --btn-primary-text: #ffffff;
 
   --accent-teal: #2dd4bf;
   --accent-teal-bg: rgba(20, 184, 166, 0.18);
@@ -85,14 +91,14 @@ body.dark-theme {
   --accent-emerald-bg: rgba(34, 197, 94, 0.18);
   --accent-emerald-border: #166534;
 
-  /* Textos Normalizados en Modo Oscuro (Brillantes y de lectura descansada) */
-  --text-primary: #f8fafc;          /* Slate 50: Blanco nítido */
-  --text-secondary: #e2e8f0;        /* Slate 200: Texto secundario de alta visibilidad */
-  --text-tertiary: #94a3b8;         /* Slate 400: Metadatos perfectamente claros */
-  --text-inverse: #0b1120;
+  /* TEXTOS EN MODO OSCURO (Luminosos y de alto contraste) */
+  --text-primary: #f8fafc;          /* Blanco nítido */
+  --text-secondary: #f1f5f9;        /* Slate 100: Muy legible */
+  --text-tertiary: #cbd5e1;         /* Slate 300 */
+  --text-muted: #94a3b8;            /* Slate 400 */
 
-  /* Bordes Visibles en Modo Oscuro */
-  --border-light: #283548;          /* Delimitación clara de tarjetas */
+  /* BORDES EN MODO OSCURO */
+  --border-light: #283548;
   --border-medium: #3b4b61;
   --border-focus: #60a5fa;
 
@@ -102,7 +108,7 @@ body.dark-theme {
 }
 
 /* --------------------------------------------------------------------------
-   2. RESET Y TRANSICIÓN SUAVE ENTRE TEMAS
+   2. RESET Y ESTRUCTURA BASE
    -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -125,46 +131,90 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  /* Transición fluida para que el cambio de color no parpadee */
   transition: background-color 0.25s ease, color 0.2s ease;
 }
 
-/* Contenedor */
 .app-container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1.25rem 1.25rem 4rem 1.25rem;
 }
 
-/* Resplandores ambientales controlados */
-body::before {
-  content: "";
-  position: fixed;
-  top: -160px;
-  right: -160px;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(50px);
+/* --------------------------------------------------------------------------
+   3. SELECTOR DUAL DE VISTA: "PERSONAS" VS "ATS / IA"
+   -------------------------------------------------------------------------- */
+.view-mode-tabs-wrapper {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 0.5rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-body::after {
-  content: "";
-  position: fixed;
-  bottom: -180px;
-  left: -180px;
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(60px);
+.view-tabs-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.view-tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.view-tab:hover {
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.view-tab.active {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text) !important;
+  border-color: var(--btn-primary-bg);
+  box-shadow: 0 3px 10px var(--primary-glow);
+}
+
+.view-tab.active .tab-icon {
+  transform: scale(1.15);
+}
+
+.view-tab-meta-badge {
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+  margin-left: 0.35rem;
+}
+
+.view-quick-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 /* --------------------------------------------------------------------------
-   3. BARRA DE NAVEGACIÓN STICKY
+   4. BARRA DE NAVEGACIÓN STICKY
    -------------------------------------------------------------------------- */
 .main-nav {
   position: sticky;
@@ -194,7 +244,7 @@ body::after {
 }
 
 .brand-badge {
-  background: linear-gradient(135deg, var(--primary), #4338ca);
+  background: linear-gradient(135deg, var(--primary), var(--accent-indigo));
   color: #ffffff;
   font-weight: 800;
   font-size: 0.85rem;
@@ -237,7 +287,7 @@ body::after {
   flex-wrap: wrap;
 }
 
-/* Botones */
+/* Botones genéricos */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -254,10 +304,10 @@ body::after {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--btn-primary-bg), var(--btn-primary-hover));
+  color: var(--btn-primary-text) !important;
   box-shadow: 0 3px 8px var(--primary-glow);
-  border-color: var(--primary);
+  border-color: var(--btn-primary-bg);
 }
 
 .btn-primary:hover {
@@ -275,17 +325,6 @@ body::after {
   background-color: var(--bg-subtle);
   border-color: var(--primary);
   color: var(--primary);
-}
-
-.btn-ats-toggle {
-  background-color: var(--accent-teal-bg);
-  color: var(--accent-teal);
-  border-color: var(--accent-teal-border);
-}
-
-.btn-ats-toggle:hover {
-  background-color: var(--accent-teal);
-  color: #ffffff;
 }
 
 .btn-icon-only {
@@ -306,35 +345,12 @@ body::after {
 }
 
 /* --------------------------------------------------------------------------
-   4. FRANJA ATS & IA
+   5. SECCIÓN 1: VISTA PORTAFOLIO INTERACTIVO (PARA PERSONAS)
    -------------------------------------------------------------------------- */
-.ats-meta-strip {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 0.65rem 1.25rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  box-shadow: var(--shadow-sm);
+#view-interactive {
+  display: block;
 }
 
-.ats-meta-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-weight: 700;
-  color: var(--accent-teal);
-}
-
-/* --------------------------------------------------------------------------
-   5. HERO CARD & PERFIL
-   -------------------------------------------------------------------------- */
 .hero-card {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-light);
@@ -383,14 +399,6 @@ body::after {
   0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
   70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
   100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-
-.hero-header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .hero-name {
@@ -506,11 +514,6 @@ body::after {
   text-overflow: ellipsis;
 }
 
-.contact-pill a:hover {
-  color: var(--primary);
-  text-decoration: underline;
-}
-
 .copy-mini-btn {
   background: var(--bg-subtle);
   border: 1px solid var(--border-light);
@@ -529,9 +532,7 @@ body::after {
   background-color: var(--primary-light);
 }
 
-/* --------------------------------------------------------------------------
-   6. CONTADORES DE IMPACTO / MÉTRICAS
-   -------------------------------------------------------------------------- */
+/* Métricas interactivo */
 .metrics-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -593,15 +594,13 @@ body::after {
 }
 
 .metric-sub {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
   line-height: 1.5;
   font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   7. SIMULADOR DE PIPELINE INTERACTIVO
-   -------------------------------------------------------------------------- */
+/* Pipeline interactivo */
 .pipeline-section {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-light);
@@ -676,7 +675,7 @@ body::after {
 }
 
 .node-tech {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   font-family: var(--font-mono);
   font-weight: 600;
@@ -703,9 +702,16 @@ body::after {
   font-size: 0.95rem;
 }
 
-/* --------------------------------------------------------------------------
-   8. TÍTULOS DE SECCIÓN
-   -------------------------------------------------------------------------- */
+/* Trayectoria & Responsabilidades */
+.experience-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2.5rem;
+}
+
 .section-heading-wrap {
   display: flex;
   justify-content: space-between;
@@ -731,18 +737,6 @@ body::after {
   width: 24px;
   height: 24px;
   color: var(--primary);
-}
-
-/* --------------------------------------------------------------------------
-   9. EXPERIENCIA & TRAYECTORIA
-   -------------------------------------------------------------------------- */
-.experience-card {
-  background: var(--bg-surface);
-  border: 1.5px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 2.5rem;
 }
 
 .exp-main-header {
@@ -797,8 +791,8 @@ body::after {
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background-color: var(--primary);
-  color: #ffffff;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-size: 0.8rem;
   font-weight: 800;
   display: flex;
@@ -816,7 +810,7 @@ body::after {
 }
 
 .phase-desc span {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
@@ -851,9 +845,7 @@ body::after {
   font-size: 0.95rem;
 }
 
-/* --------------------------------------------------------------------------
-   10. PROYECTOS DESTACADOS & FILTROS
-   -------------------------------------------------------------------------- */
+/* Proyectos & Filtros */
 .projects-header-bar {
   display: flex;
   justify-content: space-between;
@@ -895,9 +887,9 @@ body::after {
 }
 
 .filter-pill.active {
-  background-color: var(--primary);
-  color: #ffffff !important;
-  border-color: var(--primary);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text) !important;
+  border-color: var(--btn-primary-bg);
   box-shadow: 0 2px 6px var(--primary-glow);
 }
 
@@ -962,7 +954,7 @@ body::after {
 }
 
 .p-card-summary {
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
   line-height: 1.6;
   margin-bottom: 1.1rem;
@@ -1030,9 +1022,7 @@ body::after {
   gap: 0.55rem;
 }
 
-/* --------------------------------------------------------------------------
-   11. MATRIZ DE HABILIDADES TÉCNICAS & BUSCADOR
-   -------------------------------------------------------------------------- */
+/* Habilidades & Buscador */
 .skills-section-wrapper {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-light);
@@ -1144,9 +1134,7 @@ body::after {
   border: 1px solid var(--border-light);
 }
 
-/* --------------------------------------------------------------------------
-   12. EDUCACIÓN & FORMACIÓN
-   -------------------------------------------------------------------------- */
+/* Educación */
 .education-section {
   background: var(--bg-surface);
   border: 1.5px solid var(--border-light);
@@ -1210,7 +1198,245 @@ body::after {
 }
 
 /* --------------------------------------------------------------------------
-   13. MODALES (Ficha Técnica, Edición y Texto Plano ATS)
+   6. SECCIÓN 2: VISTA DOCUMENTO CANÓNICO ATS / IA (PARSERS Y SELECCIÓN)
+   -------------------------------------------------------------------------- */
+#view-ats {
+  display: none; /* Se activa mediante pestaña */
+}
+
+.ats-view-banner {
+  background: var(--bg-surface);
+  border: 2px solid var(--primary-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.ats-banner-text h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.ats-banner-text p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.ats-document-sheet {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2.5rem;
+  box-shadow: var(--shadow-md);
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* Estructura canónica ATS dentro de la hoja */
+.ats-doc-header {
+  border-bottom: 2.5px solid var(--text-primary);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.ats-doc-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.ats-doc-headline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.65rem;
+}
+
+.ats-doc-contacts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  flex-wrap: wrap;
+}
+
+.ats-doc-contacts span::after {
+  content: "•";
+  margin-left: 0.85rem;
+  color: var(--border-medium);
+}
+
+.ats-doc-contacts span:last-child::after {
+  content: "";
+}
+
+.ats-doc-section {
+  margin-bottom: 2rem;
+}
+
+.ats-doc-section:last-child {
+  margin-bottom: 0;
+}
+
+.ats-doc-section-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-medium);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.ats-doc-paragraph {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  text-align: justify;
+}
+
+.ats-doc-job-block {
+  margin-bottom: 1.5rem;
+}
+
+.ats-doc-job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.ats-doc-job-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.ats-doc-job-dates {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.ats-doc-job-company {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+}
+
+.ats-doc-bullets {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.ats-doc-bullets li {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.ats-doc-bullets li strong {
+  color: var(--text-primary);
+}
+
+.ats-doc-project-entry {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.ats-doc-project-entry:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ats-doc-project-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.ats-doc-project-techs {
+  font-size: 0.84rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.45rem;
+}
+
+.ats-doc-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.ats-doc-skill-category strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.ats-doc-skill-category p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.ats-doc-edu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ats-doc-edu-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ats-doc-edu-school {
+  font-size: 0.88rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.ats-doc-edu-status {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   7. MODALES (Ficha Técnica, Edición y Texto Plano ATS)
    -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
@@ -1432,61 +1658,29 @@ body::after {
 }
 
 /* --------------------------------------------------------------------------
-   14. MODO ATS PURO / FORMATO DOCUMENTO EJECUTIVO
-   -------------------------------------------------------------------------- */
-body.ats-mode {
-  background-color: #ffffff !important;
-  color: #111827 !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
-  line-height: 1.5 !important;
-}
-
-body.ats-mode::before,
-body.ats-mode::after {
-  display: none !important;
-}
-
-body.ats-mode .hero-card,
-body.ats-mode .experience-card,
-body.ats-mode .skills-section-wrapper,
-body.ats-mode .education-section,
-body.ats-mode .project-card-interactive,
-body.ats-mode .pipeline-section,
-body.ats-mode .metric-box {
-  background: #ffffff !important;
-  box-shadow: none !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 4px !important;
-  transform: none !important;
-}
-
-body.ats-mode .hero-status-pill,
-body.ats-mode .pulse-dot {
-  display: none !important;
-}
-
-body.ats-mode .pipeline-flow {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* --------------------------------------------------------------------------
-   15. OPTIMIZACIÓN DE IMPRESIÓN Y EXPORTACIÓN ATS A PDF
+   8. OPTIMIZACIÓN DE IMPRESIÓN Y EXPORTACIÓN ATS A PDF
    -------------------------------------------------------------------------- */
 @media print {
   body {
     background: #ffffff !important;
     color: #000000 !important;
     padding: 0 !important;
-    font-size: 10.5pt !important;
-    line-height: 1.4 !important;
+    font-size: 10pt !important;
+    line-height: 1.35 !important;
   }
 
-  body::before, body::after {
+  /* Forzar siempre la impresión limpia del documento canónico ATS */
+  #view-interactive {
     display: none !important;
   }
 
+  #view-ats {
+    display: block !important;
+  }
+
   .main-nav,
+  .view-mode-tabs-wrapper,
+  .ats-view-banner,
   .nav-actions,
   .hero-cta-group,
   .copy-mini-btn,
@@ -1496,7 +1690,7 @@ body.ats-mode .pipeline-flow {
   .modal-overlay,
   .toast-bubble,
   .scroll-top-btn,
-  .ats-meta-strip {
+  .app-footer {
     display: none !important;
   }
 
@@ -1505,32 +1699,29 @@ body.ats-mode .pipeline-flow {
     padding: 0 !important;
   }
 
-  .hero-card,
-  .experience-card,
-  .skills-section-wrapper,
-  .education-section,
-  .project-card-interactive,
-  .pipeline-section {
+  /* Si se imprime la vista ATS, se formatea como página de currículum clásica */
+  .ats-document-sheet {
     box-shadow: none !important;
-    border: 1px solid #9ca3af !important;
-    background: #ffffff !important;
-    padding: 1rem !important;
-    margin-bottom: 1.25rem !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .ats-doc-header {
+    border-bottom: 2px solid #000000 !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .ats-doc-section-title {
+    border-bottom: 1.5px solid #000000 !important;
+    color: #000000 !important;
+  }
+
+  .ats-doc-section,
+  .ats-doc-job-block,
+  .ats-doc-project-entry {
     page-break-inside: avoid !important;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 0.75rem !important;
-  }
-
-  .metric-box {
-    border: 1px solid #9ca3af !important;
-    page-break-inside: avoid !important;
-  }
-
-  .contact-strip {
-    grid-template-columns: repeat(2, 1fr) !important;
   }
 
   a {
@@ -1553,16 +1744,21 @@ body.ats-mode .pipeline-flow {
     display: none;
   }
 
+  .view-tab {
+    font-size: 0.82rem;
+    padding: 0.6rem 0.75rem;
+  }
+
   .hero-card {
     padding: 1.75rem 1.25rem;
   }
 
-  .hero-name {
-    font-size: 1.95rem;
+  .ats-document-sheet {
+    padding: 1.75rem 1.25rem;
   }
 
-  .hero-role {
-    font-size: 1.1rem;
+  .hero-name, .ats-doc-name {
+    font-size: 1.85rem;
   }
 
   .projects-grid {

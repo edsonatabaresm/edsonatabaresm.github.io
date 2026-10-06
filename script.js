@@ -2,24 +2,21 @@
  * MOTOR INTERACTIVO Y ATS DUAL - HOJA DE VIDA & PORTAFOLIO DE EDSON ANDRÉS
  * 
  * Funcionalidades Duales:
- * PARA HUMANOS:
- * 1. Pipeline de Arquitectura Interactivo ("Cómo integro soluciones en GELCO")
- * 2. Modal de Ficha Técnica Detallada de cada Proyecto
- * 3. Filtrado de Proyectos por Área de Especialidad
- * 4. Buscador de Habilidades Técnicas en tiempo real
- * 5. Animación de Métricas de Producción
- * 6. Edición y persistencia de datos de contacto
- * 7. Copiado rápido y notificaciones Toast
- * 8. Modo Oscuro / Claro y botón Scroll-to-Top
- * 
- * PARA ATS / IA / BOTS:
- * 9. Conmutador a "Modo ATS Limpio" (Vista plana y accesible sin animaciones)
- * 10. Generador y Copiado de Currículum en Texto Plano Estándar ATS (Markdown/TXT)
+ * 1. Conmutador de Pestañas: "Portafolio Interactivo (Personas)" vs "Estructura ATS / IA (Parsers)"
+ * 2. Pipeline de Arquitectura Interactivo ("Cómo integro soluciones en GELCO")
+ * 3. Modal de Ficha Técnica Detallada de cada Proyecto
+ * 4. Filtrado de Proyectos por Área de Especialidad
+ * 5. Buscador de Habilidades Técnicas en tiempo real
+ * 6. Animación de Métricas de Producción
+ * 7. Edición y persistencia de datos de contacto (actualiza ambas vistas en tiempo real)
+ * 8. Copiado rápido y notificaciones Toast
+ * 9. Modo Oscuro / Claro sin pérdida de contraste
+ * 10. Generador y Descarga de Currículum en Texto Plano Estándar ATS (.TXT)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
-  initAtsMode();
+  initViewTabs();
   initContactSystem();
   initPipelineSimulator();
   initProjectSystem();
@@ -31,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. GESTIÓN DEL TEMA (MODO OSCURO / CLARO)
+   1. GESTIÓN DEL TEMA (MODO OSCURO / CLARO NORMALIZADO)
    ========================================================================== */
 function initTheme() {
   const toggleBtn = document.getElementById('btn-theme-toggle');
@@ -65,31 +62,50 @@ function updateThemeIcon(isDark) {
 }
 
 /* ==========================================================================
-   2. CONMUTADOR A "MODO LECTURA ATS" (Vista limpia, accesible y sin efectos)
+   2. CONMUTADOR DE VISTAS DUALES: "INTERACTIVO" VS "ESTRUCTURA ATS"
    ========================================================================== */
-function initAtsMode() {
-  const atsToggleBtns = document.querySelectorAll('.action-toggle-ats');
+function initViewTabs() {
+  const tabBtnInteractive = document.getElementById('tab-btn-interactive');
+  const tabBtnAts = document.getElementById('tab-btn-ats');
+  const viewInteractive = document.getElementById('view-interactive');
+  const viewAts = document.getElementById('view-ats');
 
-  atsToggleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isAts = document.body.classList.toggle('ats-mode');
-      localStorage.setItem('eatm_ats_mode', isAts ? 'true' : 'false');
+  if (!tabBtnInteractive || !tabBtnAts || !viewInteractive || !viewAts) return;
 
-      atsToggleBtns.forEach(b => {
-        b.innerHTML = isAts
-          ? '✨ Modo Visual / Dinámico'
-          : '📄 Modo Lectura ATS';
-      });
+  function switchTab(target) {
+    if (target === 'ats') {
+      tabBtnAts.classList.add('active');
+      tabBtnInteractive.classList.remove('active');
+      viewAts.style.display = 'block';
+      viewInteractive.style.display = 'none';
+      localStorage.setItem('eatm_active_tab', 'ats');
+      showToast('🤖 Vista ATS / IA Activada (Estructura Canónica)');
+    } else {
+      tabBtnInteractive.classList.add('active');
+      tabBtnAts.classList.remove('active');
+      viewInteractive.style.display = 'block';
+      viewAts.style.display = 'none';
+      localStorage.setItem('eatm_active_tab', 'interactive');
+      showToast('👤 Portafolio Interactivo Activado');
+    }
+  }
 
-      showToast(isAts ? '📄 Modo ATS Activado (Formato Plano)' : '✨ Modo Visual Activado');
+  tabBtnInteractive.addEventListener('click', () => switchTab('interactive'));
+  tabBtnAts.addEventListener('click', () => switchTab('ats'));
+
+  // Acciones rápidas que conducen a la vista ATS
+  document.querySelectorAll('.trigger-ats-view').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      switchTab('ats');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 
-  if (localStorage.getItem('eatm_ats_mode') === 'true') {
-    document.body.classList.add('ats-mode');
-    atsToggleBtns.forEach(b => {
-      b.innerHTML = '✨ Modo Visual / Dinámico';
-    });
+  // Restaurar vista previa
+  const savedTab = localStorage.getItem('eatm_active_tab');
+  if (savedTab === 'ats') {
+    switchTab('ats');
   }
 }
 
@@ -198,7 +214,7 @@ function initAtsTextModal() {
   copyBtn?.addEventListener('click', () => {
     const text = generatePlainTextResume();
     navigator.clipboard.writeText(text).then(() => {
-      showToast('📋 Currículum ATS en texto plano copiado al portapapeles');
+      showToast('📋 Currículum ATS copiado al portapapeles');
     }).catch(() => {
       showToast('Error al copiar texto');
     });
@@ -366,7 +382,6 @@ function initProjectSystem() {
     });
   });
 
-  // Modal de Detalle de Proyecto
   const modal = document.getElementById('modal-project-spec');
   const closeModalBtn = document.getElementById('btn-close-project-modal');
   const openModalBtns = document.querySelectorAll('.btn-open-modal');
@@ -399,7 +414,7 @@ function initProjectSystem() {
         data.technologies.forEach(tech => {
           const tag = document.createElement('span');
           tag.className = 'p-tag';
-          tag.style.fontWeight = '600';
+          tag.style.fontWeight = '700';
           tag.textContent = tech;
           techContainer.appendChild(tag);
         });
@@ -470,7 +485,7 @@ function initMetricsAnimation() {
 }
 
 /* ==========================================================================
-   8. SISTEMA DE CONTACTO RÁPIDO & EDICIÓN LOCAL PERSISTENTE
+   8. SISTEMA DE CONTACTO RÁPIDO (Actualiza ambas vistas en tiempo real)
    ========================================================================== */
 function initContactSystem() {
   const saved = localStorage.getItem('eatm_user_contact');
@@ -524,7 +539,7 @@ function initContactSystem() {
     localStorage.setItem('eatm_user_contact', JSON.stringify(data));
     applyContactToDOM(data);
     closeModal();
-    showToast('✅ Información de contacto actualizada con éxito');
+    showToast('✅ Información de contacto actualizada en ambas vistas');
   });
 
   resetBtn?.addEventListener('click', () => {
@@ -549,25 +564,34 @@ function initContactSystem() {
 }
 
 function applyContactToDOM(data) {
+  // Vista Interactiva
   if (data.name) {
     const el = document.getElementById('user-name');
     if (el) el.textContent = data.name;
     const navEl = document.getElementById('nav-user-name');
     if (navEl) navEl.textContent = data.name;
+    const atsName = document.getElementById('ats-doc-display-name');
+    if (atsName) atsName.textContent = data.name;
   }
   if (data.email) {
     const el = document.getElementById('user-email');
     if (el) el.textContent = data.email;
     const link = document.getElementById('user-email-link');
     if (link) link.href = `mailto:${data.email}`;
+    const atsEmail = document.getElementById('ats-doc-email');
+    if (atsEmail) atsEmail.textContent = data.email;
   }
   if (data.phone) {
     const el = document.getElementById('user-phone');
     if (el) el.textContent = data.phone;
+    const atsPhone = document.getElementById('ats-doc-phone');
+    if (atsPhone) atsPhone.textContent = data.phone;
   }
   if (data.city) {
     const el = document.getElementById('user-city');
     if (el) el.textContent = data.city;
+    const atsCity = document.getElementById('ats-doc-city');
+    if (atsCity) atsCity.textContent = data.city;
   }
   if (data.linkedin) {
     const el = document.getElementById('user-linkedin');
@@ -575,6 +599,8 @@ function applyContactToDOM(data) {
       el.textContent = data.linkedin;
       el.href = data.linkedin.startsWith('http') ? data.linkedin : `https://${data.linkedin}`;
     }
+    const atsLinkedin = document.getElementById('ats-doc-linkedin');
+    if (atsLinkedin) atsLinkedin.textContent = data.linkedin;
   }
 }
 
@@ -603,8 +629,6 @@ function initPrintButton() {
   printBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const allPill = document.querySelector('.filter-pill[data-filter="all"]');
-      if (allPill) allPill.click();
       window.print();
     });
   });
