@@ -1,18 +1,25 @@
 /**
- * MOTOR INTERACTIVO Y DINÁMICO - HOJA DE VIDA & PORTAFOLIO DE EDSON ANDRÉS
- * Funcionalidades:
- * 1. Pipeline de Arquitectura Interactivo ("Cómo integro soluciones")
+ * MOTOR INTERACTIVO Y ATS DUAL - HOJA DE VIDA & PORTAFOLIO DE EDSON ANDRÉS
+ * 
+ * Funcionalidades Duales:
+ * PARA HUMANOS:
+ * 1. Pipeline de Arquitectura Interactivo ("Cómo integro soluciones en GELCO")
  * 2. Modal de Ficha Técnica Detallada de cada Proyecto
  * 3. Filtrado de Proyectos por Área de Especialidad
  * 4. Buscador de Habilidades Técnicas en tiempo real
- * 5. Contador Dinámico de Métricas de Producción
+ * 5. Animación de Métricas de Producción
  * 6. Edición y persistencia de datos de contacto
  * 7. Copiado rápido y notificaciones Toast
  * 8. Modo Oscuro / Claro y botón Scroll-to-Top
+ * 
+ * PARA ATS / IA / BOTS:
+ * 9. Conmutador a "Modo ATS Limpio" (Vista plana y accesible sin animaciones)
+ * 10. Generador y Copiado de Currículum en Texto Plano Estándar ATS (Markdown/TXT)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initAtsMode();
   initContactSystem();
   initPipelineSimulator();
   initProjectSystem();
@@ -20,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMetricsAnimation();
   initScrollTop();
   initPrintButton();
+  initAtsTextModal();
 });
 
 /* ==========================================================================
@@ -30,7 +38,6 @@ function initTheme() {
   const savedTheme = localStorage.getItem('eatm_theme_mode');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  // Por defecto, iniciamos con modo oscuro tecnológico si lo prefiere el sistema
   if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     document.body.classList.add('dark-theme');
     updateThemeIcon(true);
@@ -58,7 +65,160 @@ function updateThemeIcon(isDark) {
 }
 
 /* ==========================================================================
-   2. SIMULADOR DE PIPELINE INTERACTIVO ("Cómo integro soluciones en GELCO")
+   2. CONMUTADOR A "MODO LECTURA ATS" (Vista limpia, accesible y sin efectos)
+   ========================================================================== */
+function initAtsMode() {
+  const atsToggleBtns = document.querySelectorAll('.action-toggle-ats');
+
+  atsToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isAts = document.body.classList.toggle('ats-mode');
+      localStorage.setItem('eatm_ats_mode', isAts ? 'true' : 'false');
+
+      atsToggleBtns.forEach(b => {
+        b.innerHTML = isAts
+          ? '✨ Modo Visual / Dinámico'
+          : '📄 Modo Lectura ATS';
+      });
+
+      showToast(isAts ? '📄 Modo ATS Activado (Formato Plano)' : '✨ Modo Visual Activado');
+    });
+  });
+
+  if (localStorage.getItem('eatm_ats_mode') === 'true') {
+    document.body.classList.add('ats-mode');
+    atsToggleBtns.forEach(b => {
+      b.innerHTML = '✨ Modo Visual / Dinámico';
+    });
+  }
+}
+
+/* ==========================================================================
+   3. GENERADOR DE TEXTO PLANO ATS (Para copiar en portales de empleo)
+   ========================================================================== */
+function generatePlainTextResume() {
+  const name = document.getElementById('user-name')?.textContent.trim() || 'EDSON ANDRÉS';
+  const email = document.getElementById('user-email')?.textContent.trim() || '[CORREO]';
+  const phone = document.getElementById('user-phone')?.textContent.trim() || '[TELÉFONO]';
+  const city = document.getElementById('user-city')?.textContent.trim() || 'Manizales, Caldas, Colombia';
+  const linkedin = document.getElementById('user-linkedin')?.textContent.trim() || '[LINKEDIN]';
+
+  return `================================================================================
+${name.toUpperCase()}
+Auxiliar de Tecnología | Automatización (RPA), Integración de Sistemas (ERP) y Desarrollo
+Ubicación: ${city} | Correo: ${email} | Teléfono: ${phone} | LinkedIn: ${linkedin}
+================================================================================
+
+PERFIL PROFESIONAL
+Tecnólogo en Análisis y Programación de Sistemas de Información con formación activa en Ingeniería Informática en la Universidad de Caldas. Trayectoria en GELCO / Productora de Gelatina S.A.S. asumiendo el ciclo integral de desarrollo, integración de sistemas y automatización de procesos operativos (RPA). Especializado en conectar el ERP corporativo (SIESA) mediante servicios SOAP y REST con aplicaciones internas, bases de datos (SQL Server, MongoDB) y tableros de control en Power BI. Enfoque en la eliminación de reprocesos, trazabilidad y optimización operativa en entornos de producción.
+
+EXPERIENCIA LABORAL
+--------------------------------------------------------------------------------
+EMPRESA: GELCO / Productora de Gelatina S.A.S.
+CARGO: Auxiliar de Tecnología
+PERIODO: 25 de julio de 2024 – Actualidad (Activo)
+Trayectoria: 6 meses de práctica profesional -> ~1 año vía bolsa de empleo -> Vinculación directa desde febrero de 2026.
+
+Responsabilidades y Logros Clave:
+* Desarrollo y despliegue de flujos de automatización de procesos (RPA) utilizando Node-RED y Power Automate (Desktop y Cloud).
+* Integración de sistemas y consumo de servicios web SOAP (XML) y endpoints REST con el sistema ERP SIESA.
+* Elaboración y optimización de consultas SQL en SQL Server y MySQL para extracción y cruce de datos en producción.
+* Modelado y estructuración de colecciones y documentos JSON en base de datos NoSQL MongoDB.
+* Diseño y administración de tableros de control y analítica operativa en Power BI conectados a flujos de datos automáticos.
+* Levantamiento de requerimientos técnicos y funcionales con líderes de área, diagramación de flujos y documentación técnica.
+* Soporte técnico y resolución de incidencias en niveles N1, N2 y N3, junto con administración de cuentas de usuario y redes.
+
+PROYECTOS DESTACADOS EN PRODUCCIÓN
+--------------------------------------------------------------------------------
+1. Automatización de Solicitudes de Puntos de Reorden (SPR) - ERP SIESA
+   * Problema: Detección semanal manual de inventarios críticos mediante Excel y digitación en ERP (~3 horas/semana).
+   * Solución: Orquestación automática en Node-RED con consumo de servicios SOAP, XML, SQL Server y Power BI.
+   * Resultado: Reducción del tiempo de ~3 horas semanales a menos de 1 minuto 9 segundos por ciclo. Más de 1.175 órdenes trazadas en Power BI (127 aprobadas).
+
+2. Software de Programación y Gestión de Turnos de Planta (12 Horas)
+   * Solución: Desarrollo integral desde cero (frontend, backend, BD) con algoritmo dinámico de asignación de rotaciones de 12h, gestión de novedades e integración con API HikCentral de marcación facial.
+   * Resultado: Generación estructurada de la programación y contrastación en tiempo real de presencia física en planta.
+
+3. Contabilización Automática de Facturas de Proveedores
+   * Solución: Versión 2 desarrollada con Node-RED, SOAP UI, Power Automate Web, SQL Server, SharePoint y ERP SIESA. Cruce automático de entradas de almacén, órdenes de compra y reglas fiscales.
+   * Resultado: 1.168 facturas contabilizadas automáticamente desde marzo de 2026. Auditoría de 603 documentos con 538 completamente exitosos.
+
+4. Automatización de Doble Digitación y Flujo de Requisiciones (RQC / GelcoInfo)
+   * Solución: Integración bidireccional entre SIESA y GelcoInfo con Node-RED, SQL, Power Automate y Power BI embebido.
+   * Resultado: Procesamiento automático continuo de 40 a 50+ requisiciones diarias; ahorro de ~2 horas diarias de digitación.
+
+5. Facturación Automática de Máquina Vending de Colágeno
+   * Solución: Integración con API de máquina dispensadora, landing page HTML con IndexedDB para validación local, Node-RED, SOAP SIESA y facturación electrónica con Power Automate Desktop.
+   * Resultado: Proceso 100% digitalizado desde la dispensación física hasta el comprobante fiscal en el ERP.
+
+6. Gestor y Control de Entrega de Almuerzos
+   * Solución: Backend en Node-RED con MongoDB NoSQL (colecciones y vistas JSON) conectado a reconocimiento facial HikCentral.
+   * Resultado: Trazabilidad y registro fidedigno en tiempo real de colaboradores atendidos en planta.
+
+COMPETENCIAS TÉCNICAS
+--------------------------------------------------------------------------------
+* Automatización y RPA: Node-RED (Dominio Avanzado), Power Automate Desktop, Power Automate Cloud, n8n.
+* Integraciones y APIs: Integración de APIs REST, Servicios SOAP, SOAP UI, Esquemas XML, ERP SIESA.
+* Desarrollo de Software: JavaScript (Vanilla/ES6+), HTML5, CSS3, Frontend & Backend, IndexedDB.
+* Datos y Analítica: Power BI (Dashboards/Reportes embebidos), SQL (SQL Server, MySQL), MongoDB (NoSQL).
+* Sistemas Empresariales: ERP SIESA, SharePoint, GelcoInfo, Administración de Usuarios y Accesos.
+* Procesos: Análisis de Procesos, Levantamiento de Requerimientos, Documentación Técnica, Soporte N1/N2/N3.
+
+EDUCACIÓN
+--------------------------------------------------------------------------------
+* Ingeniería Informática — Universidad de Caldas (Primer semestre — En curso)
+* Tecnólogo en Análisis y Programación de Sistemas de Información — Universidad Autónoma de Manizales (Graduado)
+* Técnico Profesional en Sistemas — Universidad Autónoma de Manizales (Graduado)
+* Técnico Laboral en Sistemas — Universidad Autónoma de Manizales (Graduado)
+* Bachiller Técnico en Sistemas — Instituto Técnico Francisco José de Caldas (Graduado)
+* Diplomado de Inglés — Universidad Católica de Manizales (Nivel por confirmar | Español Nativo)
+================================================================================`;
+}
+
+function initAtsTextModal() {
+  const openBtn = document.getElementById('btn-open-ats-text');
+  const modal = document.getElementById('modal-ats-text');
+  const closeBtn = document.getElementById('btn-close-ats-text');
+  const copyBtn = document.getElementById('btn-copy-ats-text');
+  const downloadBtn = document.getElementById('btn-download-ats-txt');
+  const textPreviewEl = document.getElementById('ats-text-preview');
+
+  openBtn?.addEventListener('click', () => {
+    const plainText = generatePlainTextResume();
+    if (textPreviewEl) textPreviewEl.textContent = plainText;
+    modal?.classList.add('active');
+  });
+
+  const closeModal = () => modal?.classList.remove('active');
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  copyBtn?.addEventListener('click', () => {
+    const text = generatePlainTextResume();
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('📋 Currículum ATS en texto plano copiado al portapapeles');
+    }).catch(() => {
+      showToast('Error al copiar texto');
+    });
+  });
+
+  downloadBtn?.addEventListener('click', () => {
+    const text = generatePlainTextResume();
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'CV_Edson_Andres_ATS.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('💾 Archivo CV_Edson_Andres_ATS.txt descargado');
+  });
+}
+
+/* ==========================================================================
+   4. SIMULADOR DE PIPELINE INTERACTIVO ("Cómo integro soluciones en GELCO")
    ========================================================================== */
 const PIPELINE_DATA = {
   1: {
@@ -119,7 +279,7 @@ function initPipelineSimulator() {
 }
 
 /* ==========================================================================
-   3. BASE DE DATOS DE PROYECTOS & MODAL DE FICHA TÉCNICA DETALLADA
+   5. BASE DE DATOS DE PROYECTOS & MODAL DE FICHA TÉCNICA DETALLADA
    ========================================================================== */
 const PROJECTS_DB = {
   1: {
@@ -185,7 +345,6 @@ const PROJECTS_DB = {
 };
 
 function initProjectSystem() {
-  // Filtros de categorías
   const filterPills = document.querySelectorAll('.filter-pill');
   const projectCards = document.querySelectorAll('.project-card-interactive');
 
@@ -257,7 +416,7 @@ function initProjectSystem() {
 }
 
 /* ==========================================================================
-   4. BUSCADOR INTERACTIVO DE HABILIDADES EN TIEMPO REAL
+   6. BUSCADOR INTERACTIVO DE HABILIDADES EN TIEMPO REAL
    ========================================================================== */
 function initSkillsSearch() {
   const searchInput = document.getElementById('input-skill-search');
@@ -285,7 +444,7 @@ function initSkillsSearch() {
 }
 
 /* ==========================================================================
-   5. ANIMACIÓN Y CONTADOR DE MÉTRICAS AL HACER SCROLL
+   7. ANIMACIÓN DE MÉTRICAS AL HACER SCROLL
    ========================================================================== */
 function initMetricsAnimation() {
   const metricBoxes = document.querySelectorAll('.metric-box');
@@ -311,10 +470,9 @@ function initMetricsAnimation() {
 }
 
 /* ==========================================================================
-   6. SISTEMA DE CONTACTO RÁPIDO & EDICIÓN LOCAL PERSISTENTE
+   8. SISTEMA DE CONTACTO RÁPIDO & EDICIÓN LOCAL PERSISTENTE
    ========================================================================== */
 function initContactSystem() {
-  // Cargar datos guardados previamente
   const saved = localStorage.getItem('eatm_user_contact');
   if (saved) {
     try {
@@ -325,7 +483,6 @@ function initContactSystem() {
     }
   }
 
-  // Modal de edición
   const editBtn = document.getElementById('btn-open-contact-edit');
   const modal = document.getElementById('modal-edit-contact');
   const closeBtn = document.getElementById('btn-close-edit-modal');
@@ -375,7 +532,6 @@ function initContactSystem() {
     location.reload();
   });
 
-  // Botones de copiado rápido
   document.querySelectorAll('.copy-mini-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-target');
@@ -423,7 +579,7 @@ function applyContactToDOM(data) {
 }
 
 /* ==========================================================================
-   7. BOTÓN FLOTANTE SCROLL-TO-TOP & IMPRESIÓN
+   9. SCROLL-TO-TOP & IMPRESIÓN
    ========================================================================== */
 function initScrollTop() {
   const btn = document.getElementById('btn-scroll-top');
@@ -447,7 +603,6 @@ function initPrintButton() {
   printBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      // Aseguramos que se muestren todos los proyectos antes de imprimir
       const allPill = document.querySelector('.filter-pill[data-filter="all"]');
       if (allPill) allPill.click();
       window.print();
@@ -456,7 +611,7 @@ function initPrintButton() {
 }
 
 /* ==========================================================================
-   8. NOTIFICACIÓN TOAST FLOTANTE
+   10. NOTIFICACIÓN TOAST FLOTANTE
    ========================================================================== */
 function showToast(message) {
   let toast = document.querySelector('.toast-bubble');
