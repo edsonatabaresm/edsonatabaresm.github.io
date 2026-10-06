@@ -1,129 +1,109 @@
 /* ==========================================================================
-   PORTAFOLIO & HOJA DE VIDA PROFESIONAL INTERACTIVA + ATS OPTIMIZADA
-   Diseño: Híbrido Dual:
-   1. Humano: Moderno, dinámico, elegante y con micro-interacciones.
-   2. ATS & Bots/IA: Semántico, JSON-LD estructurado, legible por parsers
-      y con conmutador instantáneo a "Modo ATS / Lectura Plana".
+   PORTAFOLIO & HOJA DE VIDA PROFESIONAL - EDSON ANDRÉS
+   Sistema de Diseño: Paleta Normalizada de Alto Contraste (Claro & Oscuro)
+   Optimizado para: Máxima legibilidad humana, accesibilidad WCAG AAA y ATS
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO & PALETAS NORMALIZADAS
+   -------------------------------------------------------------------------- */
 :root {
-  /* Paleta Corporativa Tecnológica Premium (Modo Claro) */
-  --bg-body: #f8fafc;
-  --bg-surface: #ffffff;
+  /* MODO CLARO NORMALIZADO (Tecnológico Ejecutivo - Alto Contraste) */
+  --bg-body: #eef2f6;               /* Fondo sutilmente contrastado para destacar tarjetas */
+  --bg-surface: #ffffff;            /* Fondo de tarjeta blanco puro */
   --bg-surface-elevated: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-glass: rgba(255, 255, 255, 0.9);
+  --bg-subtle: #e2e8f0;             /* Gris suave para píldoras y tags */
+  --bg-subtle-hover: #cbd5e1;
+  --bg-glass: rgba(255, 255, 255, 0.95);
 
-  --primary: #2563eb;          /* Azul tecnológico */
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
-  --primary-border: #bfdbfe;
-  --primary-glow: rgba(37, 99, 235, 0.25);
+  --primary: #1d4ed8;               /* Azul corporativo nítido (WCAG AAA) */
+  --primary-hover: #1e40af;
+  --primary-light: #eff6ff;         /* Tinte azul suave para cajas activas */
+  --primary-border: #93c5fd;        /* Borde azul definido */
+  --primary-glow: rgba(29, 78, 216, 0.15);
 
-  --accent-teal: #0d9488;      /* Automatización / RPA */
-  --accent-teal-light: #f0fdfa;
-  --accent-indigo: #6366f1;    /* Integraciones / APIs */
-  --accent-emerald: #10b981;   /* Producción activa / métricas */
-  --accent-emerald-light: #ecfdf5;
+  --accent-teal: #0f766e;           /* Verde azulado para RPA / Automatización */
+  --accent-teal-bg: #ccfbf1;
+  --accent-teal-border: #5eead4;
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
+  --accent-indigo: #4338ca;         /* Índigo para Integraciones */
+  --accent-indigo-bg: #e0e7ff;
+  --accent-indigo-border: #a5b4fc;
+
+  --accent-emerald: #15803d;        /* Verde para producción activa */
+  --accent-emerald-bg: #dcfce7;
+  --accent-emerald-border: #86efac;
+
+  /* Textos Normalizados en Modo Claro (Cero pérdida de información) */
+  --text-primary: #0f172a;          /* Slate 900: Títulos y textos principales */
+  --text-secondary: #334155;        /* Slate 700: Párrafos y descripciones nítidas */
+  --text-tertiary: #475569;         /* Slate 600: Metadatos y etiquetas legibles */
   --text-inverse: #ffffff;
 
-  --border-light: #e2e8f0;
-  --border-medium: #cbd5e1;
-  --border-focus: #3b82f6;
+  /* Bordes Visibles y Definidos en Modo Claro */
+  --border-light: #cbd5e1;          /* Slate 300: Bordes de tarjetas claramente visibles */
+  --border-medium: #94a3b8;         /* Slate 400: Separadores y bordes de botones */
+  --border-focus: #1d4ed8;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.1);
-  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 10px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
 
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
 }
 
-/* Modo Oscuro Tecnológico */
+/* MODO OSCURO NORMALIZADO (Obsidian Slate Tecnológico) */
 body.dark-theme {
-  --bg-body: #0b0f19;
-  --bg-surface: #111827;
-  --bg-surface-elevated: #1f2937;
-  --bg-subtle: #162032;
-  --bg-glass: rgba(17, 24, 39, 0.92);
+  --bg-body: #0b1120;               /* Fondo azul noche profundo */
+  --bg-surface: #131c2e;            /* Fondo de tarjeta visible y diferenciado */
+  --bg-surface-elevated: #1e293b;
+  --bg-subtle: #1e293b;             /* Slate 800 para píldoras y tags */
+  --bg-subtle-hover: #334155;
+  --bg-glass: rgba(19, 28, 46, 0.94);
 
-  --primary: #3b82f6;
-  --primary-hover: #60a5fa;
-  --primary-light: rgba(59, 130, 246, 0.15);
-  --primary-border: #1e3a8a;
-  --primary-glow: rgba(59, 130, 246, 0.35);
+  --primary: #60a5fa;               /* Azul claro luminoso para fondo oscuro */
+  --primary-hover: #93c5fd;
+  --primary-light: rgba(59, 130, 246, 0.18);
+  --primary-border: #2563eb;
+  --primary-glow: rgba(96, 165, 250, 0.25);
 
-  --accent-teal: #14b8a6;
-  --accent-teal-light: rgba(20, 184, 166, 0.12);
-  --accent-emerald: #34d399;
-  --accent-emerald-light: rgba(16, 185, 129, 0.15);
+  --accent-teal: #2dd4bf;
+  --accent-teal-bg: rgba(20, 184, 166, 0.18);
+  --accent-teal-border: #0f766e;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-  --text-inverse: #0b0f19;
+  --accent-indigo: #818cf8;
+  --accent-indigo-bg: rgba(99, 102, 241, 0.18);
+  --accent-indigo-border: #4338ca;
 
-  --border-light: #1e293b;
-  --border-medium: #334155;
+  --accent-emerald: #4ade80;
+  --accent-emerald-bg: rgba(34, 197, 94, 0.18);
+  --accent-emerald-border: #166534;
+
+  /* Textos Normalizados en Modo Oscuro (Brillantes y de lectura descansada) */
+  --text-primary: #f8fafc;          /* Slate 50: Blanco nítido */
+  --text-secondary: #e2e8f0;        /* Slate 200: Texto secundario de alta visibilidad */
+  --text-tertiary: #94a3b8;         /* Slate 400: Metadatos perfectamente claros */
+  --text-inverse: #0b1120;
+
+  /* Bordes Visibles en Modo Oscuro */
+  --border-light: #283548;          /* Delimitación clara de tarjetas */
+  --border-medium: #3b4b61;
   --border-focus: #60a5fa;
 
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 14px 28px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.6);
 }
 
-/* ==========================================================================
-   MODO ATS PURO / FORMATO DOCUMENTO EJECUTIVO (Activable con 1 Clic)
-   Ideal para parsers automáticos, exportación en texto o lectura sin distracciones
-   ========================================================================== */
-body.ats-mode {
-  background-color: #ffffff !important;
-  color: #111827 !important;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
-  line-height: 1.5 !important;
-}
-
-body.ats-mode::before,
-body.ats-mode::after {
-  display: none !important;
-}
-
-body.ats-mode .hero-card,
-body.ats-mode .experience-card,
-body.ats-mode .skills-section-wrapper,
-body.ats-mode .education-section,
-body.ats-mode .project-card-interactive,
-body.ats-mode .pipeline-section,
-body.ats-mode .metric-box {
-  background: #ffffff !important;
-  box-shadow: none !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 4px !important;
-  transform: none !important;
-}
-
-body.ats-mode .hero-status-pill,
-body.ats-mode .pulse-dot {
-  display: none !important;
-}
-
-body.ats-mode .pipeline-flow {
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-/* Reset y Base */
+/* --------------------------------------------------------------------------
+   2. RESET Y TRANSICIÓN SUAVE ENTRE TEMAS
+   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -145,16 +125,25 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  /* Transición fluida para que el cambio de color no parpadee */
+  transition: background-color 0.25s ease, color 0.2s ease;
 }
 
-/* Resplandor ambiental de fondo */
+/* Contenedor */
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem 1.25rem 4rem 1.25rem;
+}
+
+/* Resplandores ambientales controlados */
 body::before {
   content: "";
   position: fixed;
-  top: -150px;
-  right: -150px;
-  width: 500px;
-  height: 500px;
+  top: -160px;
+  right: -160px;
+  width: 480px;
+  height: 480px;
   background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
   z-index: -1;
   pointer-events: none;
@@ -164,25 +153,19 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  bottom: -200px;
-  left: -200px;
-  width: 600px;
-  height: 600px;
+  bottom: -180px;
+  left: -180px;
+  width: 480px;
+  height: 480px;
   background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
   z-index: -1;
   pointer-events: none;
   filter: blur(60px);
 }
 
-.app-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.25rem 1.25rem 4rem 1.25rem;
-}
-
-/* ==========================================================================
-   BARRA DE NAVEGACIÓN STICKY
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   3. BARRA DE NAVEGACIÓN STICKY
+   -------------------------------------------------------------------------- */
 .main-nav {
   position: sticky;
   top: 1rem;
@@ -190,15 +173,14 @@ body::after {
   background: var(--bg-glass);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 0.65rem 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   box-shadow: var(--shadow-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: var(--transition);
 }
 
 .nav-brand {
@@ -207,12 +189,12 @@ body::after {
   gap: 0.65rem;
   text-decoration: none;
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1.05rem;
 }
 
 .brand-badge {
-  background: linear-gradient(135deg, var(--primary), var(--accent-indigo));
+  background: linear-gradient(135deg, var(--primary), #4338ca);
   color: #ffffff;
   font-weight: 800;
   font-size: 0.85rem;
@@ -222,8 +204,8 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: -0.05em;
-  box-shadow: 0 2px 8px var(--primary-glow);
+  letter-spacing: -0.04em;
+  box-shadow: 0 2px 6px var(--primary-glow);
 }
 
 .nav-links {
@@ -236,11 +218,11 @@ body::after {
 .nav-link {
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.86rem;
-  font-weight: 500;
-  padding: 0.4rem 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.45rem 0.8rem;
   border-radius: var(--radius-sm);
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .nav-link:hover, .nav-link.active {
@@ -251,35 +233,36 @@ body::after {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
-/* Botones genéricos de acción */
+/* Botones */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  font-size: 0.84rem;
-  font-weight: 600;
-  padding: 0.5rem 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.52rem 0.95rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.2s ease;
   text-decoration: none;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: #ffffff;
-  box-shadow: 0 3px 10px var(--primary-glow);
+  color: #ffffff !important;
+  box-shadow: 0 3px 8px var(--primary-glow);
+  border-color: var(--primary);
 }
 
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px var(--primary-glow);
+  box-shadow: 0 5px 14px var(--primary-glow);
 }
 
 .btn-secondary {
@@ -295,9 +278,9 @@ body::after {
 }
 
 .btn-ats-toggle {
-  background-color: var(--accent-teal-light);
+  background-color: var(--accent-teal-bg);
   color: var(--accent-teal);
-  border-color: rgba(13, 148, 136, 0.3);
+  border-color: var(--accent-teal-border);
 }
 
 .btn-ats-toggle:hover {
@@ -306,13 +289,14 @@ body::after {
 }
 
 .btn-icon-only {
-  padding: 0.5rem;
+  padding: 0.52rem 0.65rem;
   border-radius: var(--radius-sm);
   background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
-  color: var(--text-secondary);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
   cursor: pointer;
-  transition: var(--transition);
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
 }
 
 .btn-icon-only:hover {
@@ -321,44 +305,39 @@ body::after {
   background-color: var(--primary-light);
 }
 
-/* ==========================================================================
-   BANNER DE OPTIMIZACIÓN ATS & IA
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   4. FRANJA ATS & IA
+   -------------------------------------------------------------------------- */
 .ats-meta-strip {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 0.65rem 1.25rem;
   margin-bottom: 1.5rem;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   flex-wrap: wrap;
   gap: 0.6rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .ats-meta-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--accent-teal);
 }
 
-.ats-meta-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* ==========================================================================
-   HERO / PERFIL DE PRESENTACIÓN
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   5. HERO CARD & PERFIL
+   -------------------------------------------------------------------------- */
 .hero-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2.5rem 2.25rem 2rem 2.25rem;
   box-shadow: var(--shadow-md);
@@ -381,19 +360,19 @@ body::after {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--accent-emerald-light);
+  background-color: var(--accent-emerald-bg);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--accent-emerald-border);
+  padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   margin-bottom: 1.25rem;
 }
 
 .pulse-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background-color: var(--accent-emerald);
   box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
@@ -415,23 +394,34 @@ body::after {
 }
 
 .hero-name {
-  font-size: 2.35rem;
+  font-size: 2.45rem;
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .hero-role {
-  font-size: 1.22rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--primary);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.hero-role-bullet {
+  color: var(--border-medium);
+  font-weight: 700;
+}
+
+.hero-role-sub {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
 .hero-company-info {
@@ -445,6 +435,7 @@ body::after {
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
   margin-bottom: 1.25rem;
+  font-weight: 600;
 }
 
 .hero-company-info strong {
@@ -452,11 +443,16 @@ body::after {
 }
 
 .hero-summary {
-  font-size: 1rem;
+  font-size: 1.02rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  max-width: 840px;
+  max-width: 860px;
   margin-bottom: 1.75rem;
+  font-weight: 450;
+}
+
+.hero-summary strong {
+  color: var(--text-primary);
 }
 
 .hero-cta-group {
@@ -467,69 +463,75 @@ body::after {
   margin-bottom: 1.75rem;
 }
 
-/* Barra de Contacto Directo */
+/* Contact Strip */
 .contact-strip {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 0.85rem;
   padding-top: 1.5rem;
-  border-top: 1px dashed var(--border-medium);
+  border-top: 1.5px dashed var(--border-light);
 }
 
 .contact-pill {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border-light);
-  padding: 0.55rem 0.85rem;
+  gap: 0.65rem;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-light);
+  padding: 0.6rem 0.9rem;
   border-radius: var(--radius-sm);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  transition: var(--transition);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
 }
 
 .contact-pill:hover {
   border-color: var(--primary);
-  color: var(--text-primary);
 }
 
 .contact-pill svg {
-  width: 17px;
-  height: 17px;
+  width: 18px;
+  height: 18px;
   color: var(--primary);
   flex-shrink: 0;
 }
 
 .contact-pill a, .contact-pill span {
   color: var(--text-primary);
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.contact-pill a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
 .copy-mini-btn {
-  background: none;
-  border: none;
-  color: var(--text-tertiary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
   cursor: pointer;
-  padding: 2px 4px;
+  padding: 3px 6px;
   margin-left: auto;
   border-radius: 4px;
   font-size: 0.75rem;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .copy-mini-btn:hover {
   color: var(--primary);
+  border-color: var(--primary);
   background-color: var(--primary-light);
 }
 
-/* ==========================================================================
-   CONTADORES INTERACTIVOS DE IMPACTO / MÉTRICAS
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   6. CONTADORES DE IMPACTO / MÉTRICAS
+   -------------------------------------------------------------------------- */
 .metrics-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -539,7 +541,7 @@ body::after {
 
 .metric-box {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1.4rem;
   box-shadow: var(--shadow-sm);
@@ -547,13 +549,13 @@ body::after {
   flex-direction: column;
   position: relative;
   overflow: hidden;
-  transition: var(--transition);
+  transition: all 0.25s ease;
 }
 
 .metric-box:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--primary-border);
+  border-color: var(--primary);
 }
 
 .metric-box::after {
@@ -561,7 +563,7 @@ body::after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 4px;
+  width: 5px;
   height: 100%;
   background: var(--primary);
 }
@@ -571,15 +573,12 @@ body::after {
 .metric-box.accent-emerald::after { background: var(--accent-emerald); }
 
 .metric-val {
-  font-size: 2.1rem;
+  font-size: 2.15rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: var(--text-primary);
+  color: var(--primary);
   line-height: 1.1;
   margin-bottom: 0.4rem;
-  display: flex;
-  align-items: baseline;
-  gap: 0.2rem;
 }
 
 .metric-box.accent-teal .metric-val { color: var(--accent-teal); }
@@ -587,24 +586,25 @@ body::after {
 .metric-box.accent-emerald .metric-val { color: var(--accent-emerald); }
 
 .metric-title {
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
 .metric-sub {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.5;
+  font-weight: 500;
 }
 
-/* ==========================================================================
-   SIMULADOR DE PIPELINE INTERACTIVO
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   7. SIMULADOR DE PIPELINE INTERACTIVO
+   -------------------------------------------------------------------------- */
 .pipeline-section {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 1.75rem 2rem;
   box-shadow: var(--shadow-sm);
@@ -616,8 +616,8 @@ body::after {
 }
 
 .pipeline-title {
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -625,46 +625,42 @@ body::after {
 }
 
 .pipeline-desc {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .pipeline-flow {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  position: relative;
   margin-top: 1rem;
 }
 
 .pipeline-node {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-light);
+  background: var(--bg-body);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.2s ease;
   position: relative;
 }
 
 .pipeline-node:hover, .pipeline-node.active {
-  background: var(--bg-surface-elevated);
+  background: var(--bg-surface);
   border-color: var(--primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
 
-.pipeline-node.active::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: var(--radius-md);
+.pipeline-node.active {
   border: 2px solid var(--primary);
-  pointer-events: none;
+  background-color: var(--primary-light);
 }
 
 .node-step-tag {
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--primary);
@@ -673,40 +669,43 @@ body::after {
 }
 
 .node-name {
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
 .node-tech {
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
   font-family: var(--font-mono);
+  font-weight: 600;
 }
 
 .pipeline-detail-card {
   margin-top: 1.25rem;
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.4rem;
   background: var(--primary-light);
-  border-left: 4px solid var(--primary);
+  border: 1.5px solid var(--primary-border);
+  border-left: 5px solid var(--primary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
 
 .pipeline-detail-text strong {
   color: var(--primary);
+  font-size: 0.95rem;
 }
 
-/* ==========================================================================
-   TÍTULOS DE SECCIÓN
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   8. TÍTULOS DE SECCIÓN
+   -------------------------------------------------------------------------- */
 .section-heading-wrap {
   display: flex;
   justify-content: space-between;
@@ -734,12 +733,12 @@ body::after {
   color: var(--primary);
 }
 
-/* ==========================================================================
-   EXPERIENCIA & TRAYECTORIA
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   9. EXPERIENCIA & TRAYECTORIA
+   -------------------------------------------------------------------------- */
 .experience-card {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
@@ -756,23 +755,23 @@ body::after {
 }
 
 .exp-title-role {
-  font-size: 1.28rem;
+  font-size: 1.3rem;
   font-weight: 800;
   color: var(--text-primary);
 }
 
 .exp-company-highlight {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--primary);
 }
 
 .exp-period-badge {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.84rem;
+  font-weight: 700;
   background-color: var(--primary-light);
   color: var(--primary);
-  border: 1px solid var(--primary-border);
+  border: 1.5px solid var(--primary-border);
   padding: 0.35rem 0.85rem;
   border-radius: var(--radius-full);
 }
@@ -780,28 +779,28 @@ body::after {
 .career-phases {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-bottom: 1.5rem;
   padding: 1rem;
-  background-color: var(--bg-subtle);
+  background-color: var(--bg-body);
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
 }
 
 .phase-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.65rem;
+  gap: 0.7rem;
 }
 
 .phase-step-num {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background-color: var(--primary);
   color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -811,29 +810,32 @@ body::after {
 
 .phase-desc strong {
   display: block;
-  font-size: 0.84rem;
+  font-size: 0.88rem;
   color: var(--text-primary);
+  font-weight: 700;
 }
 
 .phase-desc span {
-  font-size: 0.76rem;
-  color: var(--text-tertiary);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .responsibilities-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 0.85rem;
+  gap: 0.95rem;
 }
 
 .resp-card {
   background-color: var(--bg-body);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-sm);
-  padding: 0.95rem 1.1rem;
-  font-size: 0.88rem;
+  padding: 1rem 1.15rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  transition: var(--transition);
+  transition: all 0.2s ease;
+  line-height: 1.55;
 }
 
 .resp-card:hover {
@@ -844,14 +846,14 @@ body::after {
 .resp-card strong {
   display: block;
   color: var(--text-primary);
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
 }
 
-/* ==========================================================================
-   PROYECTOS DESTACADOS & FILTROS
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   10. PROYECTOS DESTACADOS & FILTROS
+   -------------------------------------------------------------------------- */
 .projects-header-bar {
   display: flex;
   justify-content: space-between;
@@ -859,6 +861,12 @@ body::after {
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
+}
+
+.projects-hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
 }
 
 .filter-pills {
@@ -870,14 +878,14 @@ body::after {
 
 .filter-pill {
   background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.45rem 0.9rem;
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .filter-pill:hover {
@@ -888,9 +896,9 @@ body::after {
 
 .filter-pill.active {
   background-color: var(--primary);
-  color: #ffffff;
+  color: #ffffff !important;
   border-color: var(--primary);
-  box-shadow: 0 2px 8px var(--primary-glow);
+  box-shadow: 0 2px 6px var(--primary-glow);
 }
 
 .projects-grid {
@@ -902,20 +910,20 @@ body::after {
 
 .project-card-interactive {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   box-shadow: var(--shadow-sm);
-  transition: var(--transition);
+  transition: all 0.25s ease;
   position: relative;
 }
 
 .project-card-interactive:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: var(--primary-border);
+  border-color: var(--primary);
 }
 
 .p-card-top {
@@ -927,26 +935,26 @@ body::after {
 }
 
 .p-card-category {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 800;
   text-transform: uppercase;
   color: var(--primary);
   letter-spacing: 0.04em;
 }
 
 .p-card-status {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.15rem 0.55rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
-  background-color: var(--accent-emerald-light);
+  background-color: var(--accent-emerald-bg);
   color: var(--accent-emerald);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid var(--accent-emerald-border);
   white-space: nowrap;
 }
 
 .p-card-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.3;
@@ -954,42 +962,45 @@ body::after {
 }
 
 .p-card-summary {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
   flex-grow: 1;
 }
 
 .p-card-metric-highlight {
-  background-color: var(--bg-subtle);
-  border-left: 3px solid var(--primary);
-  padding: 0.65rem 0.85rem;
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  border-left: 4px solid var(--primary);
+  padding: 0.75rem 0.95rem;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.82rem;
+  font-size: 0.86rem;
   color: var(--text-primary);
   margin-bottom: 1.15rem;
+  line-height: 1.5;
 }
 
 .p-card-metric-highlight strong {
   color: var(--primary);
+  font-weight: 800;
 }
 
 .p-card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.4rem;
   margin-bottom: 1.25rem;
 }
 
 .p-tag {
-  font-size: 0.74rem;
-  font-weight: 500;
-  padding: 0.2rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
   border-radius: 4px;
   background-color: var(--bg-subtle);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
 }
 
 .p-card-footer {
@@ -997,21 +1008,21 @@ body::after {
   align-items: center;
   justify-content: space-between;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--border-light);
+  border-top: 1.5px solid var(--border-light);
 }
 
 .btn-open-modal {
   background: none;
   border: none;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 800;
   color: var(--primary);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   padding: 0;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .btn-open-modal:hover {
@@ -1019,12 +1030,12 @@ body::after {
   gap: 0.55rem;
 }
 
-/* ==========================================================================
-   MATRIZ DE HABILIDADES TÉCNICAS CON BUSCADOR
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   11. MATRIZ DE HABILIDADES TÉCNICAS & BUSCADOR
+   -------------------------------------------------------------------------- */
 .skills-section-wrapper {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
@@ -1036,11 +1047,11 @@ body::after {
   align-items: center;
   gap: 0.75rem;
   background-color: var(--bg-body);
-  border: 1px solid var(--border-medium);
+  border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-sm);
-  padding: 0.6rem 1rem;
+  padding: 0.65rem 1rem;
   margin-bottom: 1.5rem;
-  max-width: 450px;
+  max-width: 480px;
 }
 
 .skills-search-bar input {
@@ -1048,8 +1059,9 @@ body::after {
   background: transparent;
   outline: none;
   font-family: inherit;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   color: var(--text-primary);
+  font-weight: 600;
   width: 100%;
 }
 
@@ -1061,15 +1073,15 @@ body::after {
 
 .skill-domain-card {
   background-color: var(--bg-body);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   padding: 1.25rem;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .skill-domain-title {
-  font-size: 0.92rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--primary);
@@ -1089,51 +1101,55 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.86rem;
-  padding: 0.3rem 0.5rem;
+  font-size: 0.88rem;
+  padding: 0.35rem 0.55rem;
   border-radius: 4px;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .skill-entry.highlighted {
   background-color: var(--primary-light);
-  font-weight: 700;
+  border: 1px solid var(--primary-border);
+  font-weight: 800;
   color: var(--primary);
 }
 
 .skill-entry-name {
   color: var(--text-primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .skill-level-tag {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
   border-radius: 4px;
 }
 
 .tag-dominio {
-  background-color: rgba(37, 99, 235, 0.15);
+  background-color: var(--primary-light);
   color: var(--primary);
+  border: 1px solid var(--primary-border);
 }
 
 .tag-practico {
-  background-color: var(--border-light);
-  color: var(--text-secondary);
+  background-color: var(--bg-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
 }
 
 .tag-basico {
-  background-color: var(--bg-subtle);
-  color: var(--text-tertiary);
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
 }
 
-/* ==========================================================================
-   EDUCACIÓN & FORMACIÓN
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   12. EDUCACIÓN & FORMACIÓN
+   -------------------------------------------------------------------------- */
 .education-section {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-sm);
@@ -1152,38 +1168,39 @@ body::after {
   align-items: center;
   padding: 1rem 1.25rem;
   background-color: var(--bg-body);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-md);
   flex-wrap: wrap;
   gap: 0.75rem;
-  transition: var(--transition);
+  transition: all 0.2s ease;
 }
 
 .edu-row:hover {
   border-color: var(--border-medium);
   transform: translateX(4px);
+  background-color: var(--bg-surface);
 }
 
 .edu-title {
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 800;
   color: var(--text-primary);
 }
 
 .edu-place {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .edu-badge {
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
   border-radius: var(--radius-full);
   background-color: var(--bg-surface);
-  border: 1px solid var(--border-medium);
-  color: var(--text-secondary);
+  border: 1.5px solid var(--border-medium);
+  color: var(--text-primary);
 }
 
 .edu-badge.in-progress {
@@ -1192,13 +1209,13 @@ body::after {
   border-color: var(--primary-border);
 }
 
-/* ==========================================================================
-   MODALES (Ficha Técnica, Edición y Texto Plano ATS)
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   13. MODALES (Ficha Técnica, Edición y Texto Plano ATS)
+   -------------------------------------------------------------------------- */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.7);
+  background-color: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: none;
@@ -1220,7 +1237,7 @@ body::after {
 
 .modal-container {
   background: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  border: 1.5px solid var(--border-light);
   border-radius: var(--radius-lg);
   max-width: 680px;
   width: 100%;
@@ -1233,7 +1250,7 @@ body::after {
 
 .modal-top-bar {
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1.5px solid var(--border-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1244,7 +1261,7 @@ body::after {
 }
 
 .modal-heading {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-primary);
 }
@@ -1252,15 +1269,16 @@ body::after {
 .btn-close-modal {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   cursor: pointer;
   padding: 0.25rem;
+  transition: all 0.2s ease;
 }
 
 .btn-close-modal:hover {
-  color: var(--text-primary);
+  color: var(--primary);
 }
 
 .modal-content-area {
@@ -1273,11 +1291,11 @@ body::after {
 .modal-section-block {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .modal-section-title {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1285,35 +1303,37 @@ body::after {
 }
 
 .modal-section-p {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .modal-result-box {
   background: var(--primary-light);
-  border-left: 4px solid var(--primary);
+  border: 1px solid var(--primary-border);
+  border-left: 5px solid var(--primary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 0.85rem 1rem;
-  font-size: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.92rem;
   color: var(--text-primary);
+  font-weight: 600;
 }
 
 .modal-tech-flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 /* Área de Texto Plano ATS */
 .ats-code-preview {
-  background: var(--bg-subtle);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-body);
+  border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 1rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.82rem;
+  line-height: 1.55;
   white-space: pre-wrap;
   max-height: 380px;
   overflow-y: auto;
@@ -1330,19 +1350,20 @@ body::after {
 }
 
 .form-input-group label {
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .form-input-group input {
-  padding: 0.6rem 0.85rem;
-  border: 1px solid var(--border-medium);
+  padding: 0.65rem 0.85rem;
+  border: 1.5px solid var(--border-medium);
   border-radius: var(--radius-sm);
   background-color: var(--bg-body);
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-family: inherit;
+  font-weight: 600;
 }
 
 .form-input-group input:focus {
@@ -1361,7 +1382,7 @@ body::after {
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-sm);
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   box-shadow: var(--shadow-lg);
   opacity: 0;
   transform: translateY(12px);
@@ -1383,7 +1404,7 @@ body::after {
   height: 44px;
   border-radius: 50%;
   background: var(--bg-surface);
-  border: 1px solid var(--border-medium);
+  border: 1.5px solid var(--border-medium);
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -1392,7 +1413,7 @@ body::after {
   box-shadow: var(--shadow-md);
   opacity: 0;
   transform: scale(0.8);
-  transition: var(--transition);
+  transition: all 0.2s ease;
   z-index: 99;
 }
 
@@ -1404,14 +1425,54 @@ body::after {
 .app-footer {
   text-align: center;
   padding: 2.5rem 1.5rem;
-  border-top: 1px solid var(--border-light);
-  color: var(--text-tertiary);
-  font-size: 0.82rem;
+  border-top: 1.5px solid var(--border-light);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
-/* ==========================================================================
-   OPTIMIZACIÓN DE IMPRESIÓN Y EXPORTACIÓN ATS A PDF
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   14. MODO ATS PURO / FORMATO DOCUMENTO EJECUTIVO
+   -------------------------------------------------------------------------- */
+body.ats-mode {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif !important;
+  line-height: 1.5 !important;
+}
+
+body.ats-mode::before,
+body.ats-mode::after {
+  display: none !important;
+}
+
+body.ats-mode .hero-card,
+body.ats-mode .experience-card,
+body.ats-mode .skills-section-wrapper,
+body.ats-mode .education-section,
+body.ats-mode .project-card-interactive,
+body.ats-mode .pipeline-section,
+body.ats-mode .metric-box {
+  background: #ffffff !important;
+  box-shadow: none !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 4px !important;
+  transform: none !important;
+}
+
+body.ats-mode .hero-status-pill,
+body.ats-mode .pulse-dot {
+  display: none !important;
+}
+
+body.ats-mode .pipeline-flow {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. OPTIMIZACIÓN DE IMPRESIÓN Y EXPORTACIÓN ATS A PDF
+   -------------------------------------------------------------------------- */
 @media print {
   body {
     background: #ffffff !important;
@@ -1451,7 +1512,7 @@ body::after {
   .project-card-interactive,
   .pipeline-section {
     box-shadow: none !important;
-    border: 1px solid #d1d5db !important;
+    border: 1px solid #9ca3af !important;
     background: #ffffff !important;
     padding: 1rem !important;
     margin-bottom: 1.25rem !important;
@@ -1464,7 +1525,7 @@ body::after {
   }
 
   .metric-box {
-    border: 1px solid #d1d5db !important;
+    border: 1px solid #9ca3af !important;
     page-break-inside: avoid !important;
   }
 
@@ -1497,11 +1558,11 @@ body::after {
   }
 
   .hero-name {
-    font-size: 1.85rem;
+    font-size: 1.95rem;
   }
 
   .hero-role {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 
   .projects-grid {
